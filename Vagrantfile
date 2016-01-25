@@ -12,16 +12,17 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "dayspring-centos65-lamp-js-201512"
+  config.vm.box = "dayspring-centos65-lamp-js-201601"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://ruth/vagrant/boxes/dayspring-centos65-lamp-js-201512.box"
+  config.vm.box_url = "http://ruth/vagrant/boxes/dayspring-centos65-lamp-js-201601.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 3306, host: 8306
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
