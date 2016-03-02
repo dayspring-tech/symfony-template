@@ -15,6 +15,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Propel\PropelBundle\PropelBundle(),
             new Dayspring\UnitTestBundle\DayspringUnitTestBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
@@ -22,7 +23,7 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
-            new AppBundle\AppBundle(),
+            new BootstrapResourcesBundle\BootstrapResourcesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
