@@ -10,9 +10,9 @@ if node['vagrant']
     deploy_username = "root"
     deploy_groupname = "root"
 else
-    deploy_user_home = "/home/#{node[:opsworks][:deploy_user][:user]}"
-    deploy_username = node[:opsworks][:deploy_user][:user]
-    deploy_groupname = node[:opsworks][:deploy_user][:group]
+    deploy_user_home = "/home/#{node[:deploy][new_resource.params[:app]][:user]}"
+    deploy_username = node[:deploy][new_resource.params[:app]][:user]
+    deploy_groupname = node[:deploy][new_resource.params[:app]][:group]
 end
 
 directory "#{deploy_user_home}/.composer" do
@@ -86,6 +86,17 @@ package "sqlite" do
     action :upgrade
 end
 
+template "#{release_path}/#{node[:symfony][:root]}/app/config/propel.yml" do
+    source "#{release_path}/deploy/templates/propel.yml.erb"
+    local true
+    mode '0660'
+    owner new_resource.params[:deploy_data][:user]
+    group new_resource.params[:deploy_data][:group]
+    variables(
+        :database => new_resource.params[:deploy_data][:database]
+    )
+end
+
 execute "vendors install" do
     cwd "#{release_path}/#{node[:symfony][:root]}"
     command "composer install --no-interaction"
@@ -137,22 +148,22 @@ end
 script "install node modules" do
     interpreter "bash"
     user "root"
-    cwd "#{release_path}"
+    cwd "#{release_path}/"
     code <<-EOH
     npm install --no-bin-links
     EOH
 end
 
 execute "compile less" do
-    command "grunt less"
-    user "root"
-    cwd "#{release_path}"
+    user new_resource.params[:deploy_data][:user]
+    cwd "#{release_path}/"
+    command "#{release_path}/node_modules/grunt-cli/bin/grunt build"
 end
 ###### end grunt
 
 
 # install standard crons on all instances
-template "/etc/cron.d/metabolon.standard" do
+template "/etc/cron.d/#{new_resource.params[:app]}.standard" do
     source "#{release_path}/deploy/cron.standard.erb"
     local true
     mode '0644'

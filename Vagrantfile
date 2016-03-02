@@ -77,13 +77,13 @@ Vagrant.configure(2) do |config|
     eval external
   end
 
-  application_name = "myteamshop"
-  document_root = "web"
+  application_name = "symfony"
+  document_root = "symfony/web"
   database_info = {
-    "username" => "ssgweb",
-    "password" => "Ju$tD01t",
+    "username" => "devuser",
+    "password" => "devpass",
     "host" => "localhost",
-    "database" => "ssg_sap_dev"
+    "database" => "mydatabase"
   }
 
   config.vm.provision :chef_solo do |chef|
@@ -91,7 +91,7 @@ Vagrant.configure(2) do |config|
     # Site specific configuration here
     chef.json = {
       "symfony" => {
-        "root" => ".",
+        "root" => "symfony",
         "env" => "dev",
         "frontend" => "app_dev.php",
         "use_composer" => true,
@@ -100,6 +100,9 @@ Vagrant.configure(2) do |config|
       "composer" => {
         'install_globally' => true,
         'github_oauth' => composer_github_oauth
+      },
+      "php_ini" => {
+        "date.timezone" => "UTC"
       },
 
       # stuff below here is just vagrant stuff, no need to modify

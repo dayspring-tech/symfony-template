@@ -1,0 +1,6 @@
+propel:
+   dbal:
+        driver:   mysql
+        user:     <%= @database[:username] %>
+        password: <%= @database[:password] %>
+        dsn:      mysql:host=<%= @database[:host] %>;dbname=<%= @database[:database] %>;charset=UTF8

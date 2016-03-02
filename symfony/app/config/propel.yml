@@ -1,0 +1,6 @@
+propel:
+   dbal:
+        driver:   mysql
+        user:     devuser
+        password: devpass
+        dsn:      mysql:host=localhost;dbname=mydatabase;charset=UTF8
