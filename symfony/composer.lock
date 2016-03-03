@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f1c7cd6db5e157838dfad615d66a22ae",
-    "content-hash": "8f843c190d3ee3e4a73377536a4973c7",
+    "hash": "39a8f2bfc75d6fac3eb9d3510b3f8423",
+    "content-hash": "d7e69f75237e7ea3af1ee019e68f7c92",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2175,33 +2175,48 @@
         },
         {
             "name": "propel/propel-bundle",
-            "version": "1.4.5",
-            "target-dir": "Propel/PropelBundle",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/PropelBundle.git",
-                "reference": "45d983116d8e2ef9b1ea9986f04579944d822fc7"
+                "reference": "9402959f26bbac16ceffc655f042b7cf5d58d426"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/PropelBundle/zipball/45d983116d8e2ef9b1ea9986f04579944d822fc7",
-                "reference": "45d983116d8e2ef9b1ea9986f04579944d822fc7",
+                "url": "https://api.github.com/repos/propelorm/PropelBundle/zipball/9402959f26bbac16ceffc655f042b7cf5d58d426",
+                "reference": "9402959f26bbac16ceffc655f042b7cf5d58d426",
                 "shasum": ""
             },
             "require": {
-                "propel/propel1": "~1.6",
-                "symfony/propel1-bridge": "~2.3",
-                "symfony/symfony": "~2.4"
+                "propel/propel1": "^1.6.8",
+                "symfony/framework-bundle": "^2.8.2"
+            },
+            "conflict": {
+                "symfony/propel1-bridge": ">=2.8.0"
+            },
+            "replace": {
+                "symfony/propel1-bridge": "<=2.8.0"
             },
             "require-dev": {
-                "fzaninotto/faker": "dev-master",
-                "sensio/framework-extra-bundle": "~3.0"
+                "fzaninotto/faker": "^1.5",
+                "phpunit/phpunit": "^4.8.21|^5.0.10",
+                "sensio/framework-extra-bundle": "^3.0.2",
+                "symfony/symfony": "^2.8.2"
+            },
+            "suggest": {
+                "propel/propel-acl-bundle": "For using the Propel ACL implementation"
             },
             "type": "symfony-bundle",
             "autoload": {
-                "psr-0": {
-                    "Propel\\PropelBundle": ""
-                }
+                "psr-4": {
+                    "Propel\\Bundle\\PropelBundle\\": ""
+                },
+                "files": [
+                    "autoload_aliases.php"
+                ],
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2219,7 +2234,7 @@
                 "persistence",
                 "propel"
             ],
-            "time": "2015-02-16 10:50:20"
+            "time": "2016-02-15 21:33:58"
         },
         {
             "name": "propel/propel1",
@@ -3112,62 +3127,6 @@
                 "shim"
             ],
             "time": "2016-01-20 09:13:37"
-        },
-        {
-            "name": "symfony/propel1-bridge",
-            "version": "v2.6.13",
-            "target-dir": "Symfony/Bridge/Propel1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/propel1-bridge.git",
-                "reference": "aaee45c8ced1309e4e5ff1e4e569b987f03b918d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/propel1-bridge/zipball/aaee45c8ced1309e4e5ff1e4e569b987f03b918d",
-                "reference": "aaee45c8ced1309e4e5ff1e4e569b987f03b918d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "propel/propel1": "~1.6,>=1.6.5",
-                "symfony/form": "~2.3,>=2.3.8",
-                "symfony/http-foundation": "~2.0,>=2.0.5",
-                "symfony/http-kernel": "~2.0,>=2.0.5",
-                "symfony/property-access": "~2.3"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7",
-                "symfony/stopwatch": "~2.2"
-            },
-            "type": "symfony-bridge",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Bridge\\Propel1\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Propel1 Bridge",
-            "homepage": "https://symfony.com",
-            "time": "2015-05-02 15:18:45"
         },
         {
             "name": "symfony/security-acl",

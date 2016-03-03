@@ -23,7 +23,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "symfony/assetic-bundle": "~2.3",
         "twig/extensions": "1.3.*",
-        "propel/propel-bundle": "1.4.*",
+        "propel/propel-bundle": "1.5.*",
         "leafo/lessphp": "v0.4.0",
         "oyejorge/less.php": "~1.7",
         "dayspring-tech/UnitTestBundle": "dev-master",
