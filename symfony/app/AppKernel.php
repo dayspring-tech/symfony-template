@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
-            new BootstrapResourcesBundle\BootstrapResourcesBundle(),
+            new DemoBundle\DemoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

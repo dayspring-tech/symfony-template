@@ -10,10 +10,10 @@ _errors:
     resource: "@TwigBundle/Resources/config/routing/errors.xml"
     prefix:   /_error
 
-bootstrap_resources:
-    resource: "@BootstrapResourcesBundle/Controller/"
+demo:
+    resource: "@DemoBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /_demo/
 
 _main:
     resource: routing.yml
