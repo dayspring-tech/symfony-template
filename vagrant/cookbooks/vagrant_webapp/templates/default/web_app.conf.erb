@@ -39,4 +39,8 @@
   <% end -%>
 
   Include <%= @params[:local_config] %>*
+
+  # disable sendfile
+  # https://www.vagrantup.com/docs/synced-folders/virtualbox.html
+  EnableSendfile off
 </VirtualHost>
