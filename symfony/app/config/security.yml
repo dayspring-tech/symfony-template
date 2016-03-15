@@ -19,16 +19,25 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
+        login:
+            pattern:  ^/login$
+            security: false
+
+        secured_area:
+            pattern:    ^/
+            form_login:
+                check_path: _login_check
+                login_path: _login
+                default_target_path: /_demo/secure
+                provider: dayspring
+            logout:
+                path:   _logout
+                target: /
             anonymous: ~
 
-            guard:
-                authenticators:
-                    - dayspring_security.username_password_authenticator
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+#        main:
+#            anonymous: ~
+#
+#            guard:
+#                authenticators:
+#                    - dayspring_security.username_password_authenticator
