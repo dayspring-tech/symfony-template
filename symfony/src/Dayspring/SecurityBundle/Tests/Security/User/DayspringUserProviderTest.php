@@ -30,7 +30,7 @@ class DayspringUserProviderTest extends DatabaseTestCase
 
     public function testLoadUserByUsername()
     {
-        $user = $this->userProvider->loadUserByUsername('testuser');
+        $user = $this->userProvider->loadUserByUsername('testuser@example.com');
 
         $this->assertEquals(1, $user->getId());
     }
@@ -38,12 +38,12 @@ class DayspringUserProviderTest extends DatabaseTestCase
     public function testRefreshUser()
     {
         $user = new User();
-        $user->setEmail('testuser');
+        $user->setEmail('testuser@example.com');
 
         $refreshedUser = $this->userProvider->refreshUser($user);
 
         $this->assertEquals(1, $refreshedUser->getId());
-        $this->assertEquals('testuser', $refreshedUser->getUsername());
+        $this->assertEquals('testuser@example.com', $refreshedUser->getUsername());
     }
 
     public function testSupportsClass()
