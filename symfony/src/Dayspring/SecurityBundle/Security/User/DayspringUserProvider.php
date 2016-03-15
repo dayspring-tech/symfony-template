@@ -11,10 +11,14 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 class DayspringUserProvider implements UserProviderInterface
 {
 
+    /**
+     * @param $username
+     * @return User
+     */
     public function loadUserByUsername($username)
     {
         $user = UserQuery::create()
-            ->filterByUsername($username)
+            ->filterByEmail($username)
             ->findOne();
 
         if ($user == null) {
@@ -26,6 +30,10 @@ class DayspringUserProvider implements UserProviderInterface
         return $user;
     }
 
+    /**
+     * @param UserInterface $user
+     * @return User
+     */
     public function refreshUser(UserInterface $user)
     {
         if (!$user instanceof User) {
@@ -42,4 +50,16 @@ class DayspringUserProvider implements UserProviderInterface
         return $class === 'Dayspring\SecurityBundle\Model\User';
     }
 
+    /**
+     * @param $resetToken
+     * @return User
+     */
+    public function loadUserByResetToken($resetToken)
+    {
+        $user = UserQuery::create()
+            ->filterByResetToken($resetToken)
+            ->findOne();
+
+        return $user;
+    }
 }

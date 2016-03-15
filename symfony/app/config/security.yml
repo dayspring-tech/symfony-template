@@ -20,7 +20,7 @@ security:
             security: false
 
         login:
-            pattern:  ^/login$
+            pattern:  ^/(login|forgot-password|reset-password/[0-9a-zA-Z]+)$
             security: false
 
         secured_area:

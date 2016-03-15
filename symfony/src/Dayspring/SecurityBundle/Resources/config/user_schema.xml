@@ -4,12 +4,14 @@
           xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd">
     <table name="users" phpName="User" idMethod="native">
         <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
-        <column name="username" phpName="Username" type="VARCHAR" size="100"/>
+        <column name="email" phpName="Email" type="VARCHAR" size="100"/>
         <column name="password" phpName="Password" type="VARCHAR" size="100"/>
         <column name="salt" phpName="Salt" type="VARCHAR" size="100"/>
-        <index>
-            <index-column name="username"/>
-        </index>
+        <column name="reset_token" phpName="ResetToken" type="CHAR" size="40" required="false"/>
+        <column name="reset_token_expire" phpName="ResetTokenExpire" type="TIMESTAMP" required="false"/>
+        <unique name="user_username_UNIQUE">
+            <unique-column name="email"/>
+        </unique>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>

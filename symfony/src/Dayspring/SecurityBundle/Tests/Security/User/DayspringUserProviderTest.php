@@ -38,7 +38,7 @@ class DayspringUserProviderTest extends DatabaseTestCase
     public function testRefreshUser()
     {
         $user = new User();
-        $user->setUsername('testuser');
+        $user->setEmail('testuser');
 
         $refreshedUser = $this->userProvider->refreshUser($user);
 
