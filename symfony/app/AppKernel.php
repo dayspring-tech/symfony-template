@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
+            new Dayspring\SecurityBundle\DayspringSecurityBundle(),
             new DemoBundle\DemoBundle(),
         );
 

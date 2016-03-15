@@ -4,8 +4,14 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        dayspring:
+            id: dayspring_security.user_provider
+
+    # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
+    encoders:
+        Dayspring\SecurityBundle\Model\User:
+            algorithm: bcrypt
+            cost: 12
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,6 +21,10 @@ security:
 
         main:
             anonymous: ~
+
+            guard:
+                authenticators:
+                    - dayspring_security.username_password_authenticator
             # activate different ways to authenticate
 
             # http_basic: ~
