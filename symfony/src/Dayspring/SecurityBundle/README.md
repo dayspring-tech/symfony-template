@@ -2,11 +2,6 @@
 
 This bundle provides basic username/password authentication, forgot/reset password, and change password.
 
-If your application requires additional information to be stored with the user, the recommended strategy is to create
-a `UserProfile` model using Propel's inheritance features.
-http://propelorm.org/Propel/documentation/09-inheritance.html#class-table-inheritance
-
-
 Minimally, your `security.yml` should contain the following:
 ```
 security:
@@ -35,4 +30,20 @@ security:
                 path:   _logout
                 target: /
             anonymous: ~
+```
+
+### User Profiles
+If your application requires additional information to be stored with the user, the recommended strategy is to create
+a `UserProfile` model using Propel's inheritance features.
+http://propelorm.org/Propel/documentation/09-inheritance.html#class-table-inheritance
+
+Example:
+```
+<table name="user_profiles" phpName="UserProfile" idMethod="native">
+  <behavior name="concrete_inheritance">
+    <parameter name="extends" value="users" />
+  </behavior>
+  <column name="first_name" type="VARCHAR" size="100"/>
+  <column name="last_name" type="VARCHAR" size="100"/>
+</table>
 ```
