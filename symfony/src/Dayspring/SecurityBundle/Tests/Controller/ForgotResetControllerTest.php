@@ -38,7 +38,6 @@ class ForgotResetControllerTest extends WebTestCase
         );
 
         $form = $crawler->selectButton("Submit")->form();
-
         $form['form[email]'] = 'testuser@example.com';
         $crawler = $this->client->submit($form);
 
@@ -61,7 +60,6 @@ class ForgotResetControllerTest extends WebTestCase
         );
 
         $form = $crawler->selectButton("Submit")->form();
-
         $form['form[email]'] = 'foobar@doesnotexist.com';
         $crawler = $this->client->submit($form);
 
@@ -93,9 +91,8 @@ class ForgotResetControllerTest extends WebTestCase
         );
 
         $form = $crawler->selectButton("Save")->form();
-
-        $form['resetPassword[password][first]'] = 'Welcome1';
-        $form['resetPassword[password][second]'] = 'Welcome1';
+        $form['reset_password[password][first]'] = 'Welcome1';
+        $form['reset_password[password][second]'] = 'Welcome1';
         $crawler = $this->client->submit($form);
 
         $this->assertTrue($this->client->getResponse()->isRedirect());
@@ -125,9 +122,8 @@ class ForgotResetControllerTest extends WebTestCase
         );
 
         $form = $crawler->selectButton("Save")->form();
-
-        $form['resetPassword[password][first]'] = 'Welcome1';
-        $form['resetPassword[password][second]'] = 'doesnotmatch';
+        $form['reset_password[password][first]'] = 'Welcome1';
+        $form['reset_password[password][second]'] = 'doesnotmatch';
         $crawler = $this->client->submit($form);
 
         $this->assertGreaterThan(
@@ -138,5 +134,100 @@ class ForgotResetControllerTest extends WebTestCase
         $user->reload();
         $this->assertEquals("myoldpassword", $user->getPassword());
     }
+
+    public function testChangePasswordNotLoggedIn()
+    {
+        $crawler = $this->client->request("GET", "/account/change-password");
+
+        $this->assertTrue($this->client->getResponse()->isRedirect());
+        $crawler = $this->client->followRedirect();
+
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("Log In")')->count()
+        );
+    }
+
+    public function testChangePassword()
+    {
+        $encoder = static::$kernel->getContainer()->get('security.password_encoder');
+
+        $user = new User();
+        $user->setEmail(sprintf("test+%s@test.com", microtime()));
+        $encoded = $encoder->encodePassword($user, 'password');
+        $user->setPassword($encoded);
+        $user->save();
+
+        $crawler = $this->client->request("GET", "/login");
+
+        $form = $crawler->selectButton('Log in')->form();
+        $form['_username'] = $user->getUsername();
+        $form['_password'] = 'password';
+
+        $crawler = $this->client->submit($form);
+
+        $crawler = $this->client->request("GET", "/account/change-password");
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("Change Password")')->count()
+        );
+
+        $form = $crawler->selectButton('Save')->form();
+        $form['change_password[password]'] = 'password';
+        $form['change_password[newPassword][first]'] = 'Welcome1';
+        $form['change_password[newPassword][second]'] = 'Welcome1';
+        $crawler = $this->client->submit($form);
+
+        $this->assertTrue($this->client->getResponse()->isRedirect());
+        $crawler = $this->client->followRedirect();
+
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("New password has been saved")')->count()
+        );
+
+        $user->reload();
+        $this->assertNotEquals($encoded, $user->getPassword());
+    }
+
+    public function testChangePasswordNoMatch()
+    {
+        $encoder = static::$kernel->getContainer()->get('security.password_encoder');
+
+        $user = new User();
+        $user->setEmail(sprintf("test+%s@test.com", microtime()));
+        $encoded = $encoder->encodePassword($user, 'password');
+        $user->setPassword($encoded);
+        $user->save();
+
+        $crawler = $this->client->request("GET", "/login");
+
+        $form = $crawler->selectButton('Log in')->form();
+        $form['_username'] = $user->getUsername();
+        $form['_password'] = 'password';
+
+        $crawler = $this->client->submit($form);
+
+        $crawler = $this->client->request("GET", "/account/change-password");
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("Change Password")')->count()
+        );
+
+        $form = $crawler->selectButton('Save')->form();
+        $form['change_password[password]'] = 'password';
+        $form['change_password[newPassword][first]'] = 'Welcome1';
+        $form['change_password[newPassword][second]'] = 'doesnotmatch';
+        $crawler = $this->client->submit($form);
+
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("The password fields must match")')->count()
+        );
+
+        $user->reload();
+        $this->assertEquals($encoded, $user->getPassword());
+    }
+
 
 }

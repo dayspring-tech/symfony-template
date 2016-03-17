@@ -11,7 +11,6 @@ namespace Dayspring\SecurityBundle\Tests\Security\User;
 use Dayspring\SecurityBundle\Model\User;
 use Dayspring\SecurityBundle\Security\User\DayspringUserProvider;
 use Dayspring\UnitTestBundle\Framework\Test\DatabaseTestCase;
-use Symfony\Component\Security\Core\Tests\Encoder\SomeUser;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class DayspringUserProviderTest extends DatabaseTestCase
@@ -78,5 +77,28 @@ class DayspringUserProviderTest extends DatabaseTestCase
         $user = new SomeUser();
 
         $this->assertFalse($this->userProvider->supportsClass(get_class($user)));
+    }
+}
+
+class SomeUser implements UserInterface
+{
+    public function getRoles()
+    {
+    }
+
+    public function getPassword()
+    {
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function getUsername()
+    {
+    }
+
+    public function eraseCredentials()
+    {
     }
 }

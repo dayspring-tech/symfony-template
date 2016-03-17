@@ -84,7 +84,7 @@ class ForgotResetController extends Controller
 
         $user = $userProvider->loadUserByResetToken($resetToken);
         if ($user) {
-            $form = $this->createForm(new ResetPasswordType(), $user);
+            $form = $this->createForm(ResetPasswordType::class, $user);
             if ($request->getMethod() == 'POST') {
                 $form->handleRequest($request);
                 if ($form->isValid()) {
@@ -124,7 +124,7 @@ class ForgotResetController extends Controller
         $encoder = $this->get('security.password_encoder');
 
         $currentUser = $this->getUser();
-        $form = $this->createForm(new ChangePasswordType(), new ChangePasswordEntity());
+        $form = $this->createForm(ChangePasswordType::class, new ChangePasswordEntity());
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -141,11 +141,11 @@ class ForgotResetController extends Controller
                     $currentUser->getRoles()
                 );
                 $token = $authenticationManager->authenticate($token);
-                $this->get("security.context")->setToken($token);
+                $this->get("security.token_storage")->setToken($token);
 
                 $session->getFlashBag()->add('success', 'New password has been saved.');
 
-                return $this->redirect($this->generateUrl("dashboard"));
+                return $this->redirect($this->generateUrl("account_dashboard"));
             }
         }
         return array(
