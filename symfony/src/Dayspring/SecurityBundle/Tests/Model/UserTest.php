@@ -85,5 +85,4 @@ class UserTest extends DatabaseTestCase
 
         $user->delete();
     }
-
 }

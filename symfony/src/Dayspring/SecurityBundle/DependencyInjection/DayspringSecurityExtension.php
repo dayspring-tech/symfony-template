@@ -16,6 +16,8 @@ class DayspringSecurityExtension extends Extension
 {
     /**
      * {@inheritdoc}
+     *
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
      */
     public function load(array $configs, ContainerBuilder $container)
     {

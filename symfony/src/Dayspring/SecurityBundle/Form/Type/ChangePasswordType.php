@@ -25,14 +25,13 @@ class ChangePasswordType extends AbstractType
         ));
 
         $builder->add('newPassword', 'repeated', array(
-                'type' => 'password',
-                'invalid_message' => 'The password fields must match.',
-                'required' => true,
-                'options' => array('attr' => array('class' => 'password-field', 'style' => 'max-width:300px')),
-                'first_options' => array('label' => 'New Password'),
-                'second_options' => array('label' => 'Repeat New Password'),
-            )
-        );
+            'type' => 'password',
+            'invalid_message' => 'The password fields must match.',
+            'required' => true,
+            'options' => array('attr' => array('class' => 'password-field', 'style' => 'max-width:300px')),
+            'first_options' => array('label' => 'New Password'),
+            'second_options' => array('label' => 'Repeat New Password'),
+        ));
     }
 
     public function getName()
