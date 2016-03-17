@@ -5,7 +5,6 @@ namespace Dayspring\SecurityBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class SecurityController extends Controller
 {
@@ -37,7 +36,7 @@ class SecurityController extends Controller
     /**
      * @Route("/logout", name="_logout")
      */
-    public function logoutAction(Request $request)
+    public function logoutAction()
     {
     }
 }

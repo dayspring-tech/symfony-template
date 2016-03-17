@@ -34,10 +34,3 @@ security:
                 path:   _logout
                 target: /
             anonymous: ~
-
-#        main:
-#            anonymous: ~
-#
-#            guard:
-#                authenticators:
-#                    - dayspring_security.username_password_authenticator

@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class ChangePasswordEntity
 {
 
-
     protected $password;
 
     protected $newPassword;
@@ -59,7 +58,4 @@ class ChangePasswordEntity
     {
         $this->newPassword = $newPassword;
     }
-
-
-
 }

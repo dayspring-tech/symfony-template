@@ -7,6 +7,7 @@ use Dayspring\SecurityBundle\Form\Type\ChangePasswordType;
 use Dayspring\SecurityBundle\Form\Type\ResetPasswordType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,7 +63,7 @@ class ForgotResetController extends Controller
                 return $this->redirect($this->generateUrl('_login'));
             } catch (UsernameNotFoundException $e) {
                 $request->getSession()->getFlashBag()->add(
-                    "forgotPwError",
+                    "error",
                     $e->getMessage()
                 );
             }
@@ -114,6 +115,7 @@ class ForgotResetController extends Controller
     /**
      * @Route("/account/change-password", name="change_password")
      * @Template()
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function changePasswordAction(Request $request)
     {
@@ -150,5 +152,4 @@ class ForgotResetController extends Controller
             'form' => $form->createView()
         );
     }
-
 }
