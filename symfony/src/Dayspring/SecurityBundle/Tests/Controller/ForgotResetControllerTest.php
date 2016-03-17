@@ -110,4 +110,33 @@ class ForgotResetControllerTest extends WebTestCase
         $this->assertNotEquals("myoldpassword", $user->getPassword());
     }
 
+    public function testResetPasswordValidationError()
+    {
+        $user = new User();
+        $user->setEmail(sprintf("test+%s@test.com", microtime()));
+        $user->setPassword("myoldpassword");
+        $token = $user->generateResetToken();
+
+        $crawler = $this->client->request("GET", "/reset-password/".$token);
+
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("Reset Password")')->count()
+        );
+
+        $form = $crawler->selectButton("Save")->form();
+
+        $form['resetPassword[password][first]'] = 'Welcome1';
+        $form['resetPassword[password][second]'] = 'doesnotmatch';
+        $crawler = $this->client->submit($form);
+
+        $this->assertGreaterThan(
+            0,
+            $crawler->filter('html:contains("The password fields must match")')->count()
+        );
+
+        $user->reload();
+        $this->assertEquals("myoldpassword", $user->getPassword());
+    }
+
 }
