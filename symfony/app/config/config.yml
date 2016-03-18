@@ -44,9 +44,6 @@ assetic:
     bundles:        [ ]
     #java: /usr/bin/java
     filters:
-        lessphp:
-             file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php
-             apply_to: "\.less$"
         cssrewrite: ~
         uglifyjs2:
             # the path to the uglifyjs executable
@@ -57,7 +54,6 @@ assetic:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
 braincrafted_bootstrap:
-    less_filter: lessphp
     auto_configure:
         assetic: false
 

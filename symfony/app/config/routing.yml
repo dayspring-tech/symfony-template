@@ -1,0 +1,4 @@
+dayspring_login:
+    resource: "@DayspringLoginBundle/Controller/"
+    type:     annotation
+    prefix:   /

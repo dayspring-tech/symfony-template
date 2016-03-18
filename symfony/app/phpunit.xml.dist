@@ -22,14 +22,23 @@
         </testsuite>
     </testsuites>
 
+    <logging>
+        <log type="junit" target="../build/logs/junit.xml"
+             logIncompleteSkipped="false"/>
+    </logging>
+
     <filter>
         <whitelist>
             <directory>../src</directory>
             <exclude>
                 <directory>../src/*Bundle/Resources</directory>
                 <directory>../src/*Bundle/Tests</directory>
+                <directory>../src/*Bundle/Model/om</directory>
+                <directory>../src/*Bundle/Model/map</directory>
                 <directory>../src/*/*Bundle/Resources</directory>
                 <directory>../src/*/*Bundle/Tests</directory>
+                <directory>../src/*/*Bundle/Model/om</directory>
+                <directory>../src/*/*Bundle/Model/map</directory>
                 <directory>../src/*/Bundle/*Bundle/Resources</directory>
                 <directory>../src/*/Bundle/*Bundle/Tests</directory>
             </exclude>

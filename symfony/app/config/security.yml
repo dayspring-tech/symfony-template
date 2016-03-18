@@ -4,8 +4,14 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        dayspring:
+            id: dayspring_login.user_provider
+
+    # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
+    encoders:
+        Dayspring\LoginBundle\Model\User:
+            algorithm: bcrypt
+            cost: 12
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -13,12 +19,18 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
+        login:
+            pattern:  ^/(login|forgot-password|reset-password/[0-9a-zA-Z]+)$
+            security: false
+
+        secured_area:
+            pattern:    ^/
+            form_login:
+                check_path: _login_check
+                login_path: _login
+                default_target_path: /_demo/secure
+                provider: dayspring
+            logout:
+                path:   _logout
+                target: /
             anonymous: ~
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
