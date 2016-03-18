@@ -167,7 +167,7 @@
             <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
             <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
             <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
-            <arg value="--ignore=${basedir}/app,${basedir}/vendor,${basedir}/src/Dayspring/SecurityBundle/Model/map,${basedir}/src/Dayspring/SecurityBundle/Model/om" />
+            <arg value="--ignore=${basedir}/app,${basedir}/vendor,${basedir}/src/Dayspring/LoginBundle/Model/map,${basedir}/src/Dayspring/LoginBundle/Model/om" />
             <arg path="${basedir}" />
         </exec>
     </target>
@@ -181,9 +181,9 @@
             <arg value="- -exclude" />
             <arg value="${basedir}/vendor" />-->
             <arg value="--exclude" />
-            <arg value="Dayspring/SecurityBundle/Model/map" />
+            <arg value="Dayspring/LoginBundle/Model/map" />
             <arg value="--exclude" />
-            <arg value="Dayspring/SecurityBundle/Model/om" />
+            <arg value="Dayspring/LoginBundle/Model/om" />
             <arg value="--exclude" />
             <arg value="DependencyInjection" />
             <arg value="--exclude" />
@@ -206,7 +206,7 @@
             <arg value="--report=checkstyle" />
             <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
             <arg value="--standard=${basedir}/build/phpcs.xml" />
-            <arg value="--ignore=${basedir}/src/Dayspring/SecurityBundle/Resources" />
+            <arg value="--ignore=${basedir}/src/Dayspring/LoginBundle/Resources" />
             <!--<arg value="- -ignore=${basedir}/vendor/*,${basedir}/app/*,${basedir}/web/*,*.js,*.css" />-->
             <arg path="${basedir}/src" />
         </exec>
@@ -220,7 +220,7 @@
             <arg value="text" />
             <arg value="${basedir}/build/phpmd.xml" />
             <arg value="--ignore"/>
-            <arg value="*/Model/map,*/Model/om,Dayspring/SecurityBundle/Model/map,Dayspring/SecurityBundle/Model/om" />
+            <arg value="*/Model/map,*/Model/om,Dayspring/LoginBundle/Model/map,Dayspring/LoginBundle/Model/om" />
         </exec>
     </target>
 
@@ -232,7 +232,7 @@
             <arg value="--reportfile" />
             <arg value="${basedir}/build/logs/pmd.xml" />
             <arg value="--exclude"/>
-            <arg value="Dayspring/SecurityBundle/Model/map,Dayspring/SecurityBundle/Model/om" />
+            <arg value="Dayspring/LoginBundle/Model/map,Dayspring/LoginBundle/Model/om" />
         </exec>
     </target>
 

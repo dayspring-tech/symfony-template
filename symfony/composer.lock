@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5982ecdbaaf96f6f17c8bf98245e3574",
-    "content-hash": "22e0afe88513e10b5c8f2499ea8bd2ec",
+    "hash": "eba199dfda83423eede3235744066dfb",
+    "content-hash": "2e20c95f6619a642fcf64c2d0fcc4b16",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -132,17 +132,17 @@
             "time": "2016-01-23 17:44:32"
         },
         {
-            "name": "dayspring-tech/SecurityBundle",
-            "version": "0.1.1",
+            "name": "dayspring-tech/login-bundle",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
-                "url": "https://bitbucket.org/dayspring-tech/securitybundle.git",
-                "reference": "8f7d58ccfe4bba7b6c4f29e3dee1a931255a74d2"
+                "url": "https://bitbucket.org/dayspring-tech/login-bundle.git",
+                "reference": "02caf6c5196e8d1cf87886331538af9d0503c946"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/dayspring-tech/securitybundle/get/8f7d58ccfe4bba7b6c4f29e3dee1a931255a74d2.zip",
-                "reference": "8f7d58ccfe4bba7b6c4f29e3dee1a931255a74d2",
+                "url": "https://bitbucket.org/dayspring-tech/login-bundle/get/02caf6c5196e8d1cf87886331538af9d0503c946.zip",
+                "reference": "02caf6c5196e8d1cf87886331538af9d0503c946",
                 "shasum": ""
             },
             "require": {
@@ -154,13 +154,12 @@
                 "symfony/symfony": "2.8.*"
             },
             "require-dev": {
-                "dayspring-tech/unittestbundle": "dev-master",
                 "phpunit/phpunit": "^4.0"
             },
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
-                    "Dayspring\\SecurityBundle\\": ""
+                    "Dayspring\\LoginBundle\\": ""
                 },
                 "exclude-from-classmap": [
                     "Tests/"
@@ -184,33 +183,40 @@
                 "reset password",
                 "user authentication"
             ],
-            "time": "2016-03-18 21:05:32"
+            "time": "2016-03-18 22:17:17"
         },
         {
-            "name": "dayspring-tech/UnitTestBundle",
-            "version": "dev-master",
+            "name": "dayspring-tech/service-test-helper",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dayspring-tech/UnitTestBundle.git",
-                "reference": "71bf1bfd4890188cfc047ba3d337f727f6242b64"
+                "url": "https://bitbucket.org/dayspring-tech/service-test-helper.git",
+                "reference": "0938b60f7f2c903956dabdf1dcc16017a942bd06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dayspring-tech/UnitTestBundle/zipball/71bf1bfd4890188cfc047ba3d337f727f6242b64",
-                "reference": "71bf1bfd4890188cfc047ba3d337f727f6242b64",
+                "url": "https://bitbucket.org/dayspring-tech/service-test-helper/get/0938b60f7f2c903956dabdf1dcc16017a942bd06.zip",
+                "reference": "0938b60f7f2c903956dabdf1dcc16017a942bd06",
                 "shasum": ""
             },
-            "type": "library",
+            "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
-                    "Dayspring\\UnitTestBundle\\": ""
+                    "Dayspring\\ServiceTestHelper\\": ""
                 }
             },
-            "support": {
-                "source": "https://github.com/dayspring-tech/UnitTestBundle/tree/master",
-                "issues": "https://github.com/dayspring-tech/UnitTestBundle/issues"
-            },
-            "time": "2016-01-21 00:23:19"
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Wong",
+                    "email": "jwong@dayspring-tech.com",
+                    "homepage": "http://dayspring-tech.com"
+                }
+            ],
+            "description": "Helper for testing services",
+            "time": "2016-03-18 21:51:06"
         },
         {
             "name": "doctrine/annotations",
@@ -1940,16 +1946,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "a93889dfb1c0ae465b62236ede8d00d3ea260952"
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a93889dfb1c0ae465b62236ede8d00d3ea260952",
-                "reference": "a93889dfb1c0ae465b62236ede8d00d3ea260952",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c7e26a21ba357863de030f0b9e701c7d04593774",
+                "reference": "c7e26a21ba357863de030f0b9e701c7d04593774",
                 "shasum": ""
             },
             "require": {
@@ -1984,7 +1990,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18 17:16:04"
+            "time": "2016-03-18 20:34:03"
         },
         {
             "name": "phing/phing",
@@ -4410,9 +4416,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "dayspring-tech/unittestbundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -17,13 +17,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Propel\PropelBundle\PropelBundle(),
-            new Dayspring\UnitTestBundle\DayspringUnitTestBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new Oneup\FlysystemBundle\OneupFlysystemBundle(),
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
-            new Dayspring\SecurityBundle\DayspringSecurityBundle(),
+            new Dayspring\LoginBundle\DayspringLoginBundle(),
             new DemoBundle\DemoBundle(),
         );
 

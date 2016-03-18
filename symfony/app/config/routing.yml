@@ -1,4 +1,4 @@
-dayspring_security:
-    resource: "@DayspringSecurityBundle/Controller/"
+dayspring_login:
+    resource: "@DayspringLoginBundle/Controller/"
     type:     annotation
     prefix:   /
