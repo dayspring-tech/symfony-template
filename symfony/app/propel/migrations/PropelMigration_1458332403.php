@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1458080878.
- * Generated on 2016-03-15 22:27:58 by vagrant
+ * up to version 1458332403.
+ * Generated on 2016-03-18 20:20:03 by vagrant
  */
-class PropelMigration_1458080878
+class PropelMigration_1458332403
 {
 
     public function preUp($manager)
@@ -42,7 +42,39 @@ class PropelMigration_1458080878
 # It "suspends judgement" for fkey relationships until are tables are set.
 SET FOREIGN_KEY_CHECKS = 0;
 
-ALTER TABLE `users` CHANGE `reset_token_expire` `reset_token_expire` DATETIME;
+CREATE TABLE `users`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `email` VARCHAR(100),
+    `password` VARCHAR(100),
+    `salt` VARCHAR(100),
+    `reset_token` CHAR(40),
+    `reset_token_expire` DATETIME,
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `user_username_UNIQUE` (`email`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `roles`
+(
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `role_name` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `roles_users`
+(
+    `user_id` INTEGER NOT NULL,
+    `role_id` INTEGER NOT NULL,
+    PRIMARY KEY (`user_id`,`role_id`),
+    INDEX `FK_rolesUsers_user_idx` (`user_id`),
+    INDEX `FK_rolesUsers_role_idx` (`role_id`),
+    CONSTRAINT `FK_rolesUsers_user`
+        FOREIGN KEY (`user_id`)
+        REFERENCES `users` (`id`),
+    CONSTRAINT `FK_rolesUsers_role`
+        FOREIGN KEY (`role_id`)
+        REFERENCES `roles` (`id`)
+) ENGINE=InnoDB;
 
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
@@ -64,7 +96,11 @@ SET FOREIGN_KEY_CHECKS = 1;
 # It "suspends judgement" for fkey relationships until are tables are set.
 SET FOREIGN_KEY_CHECKS = 0;
 
-ALTER TABLE `users` CHANGE `reset_token_expire` `reset_token_expire` DATE;
+DROP TABLE IF EXISTS `users`;
+
+DROP TABLE IF EXISTS `roles`;
+
+DROP TABLE IF EXISTS `roles_users`;
 
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
