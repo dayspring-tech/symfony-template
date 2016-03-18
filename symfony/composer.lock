@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a2250c1053eef58378b842a936ebf18",
-    "content-hash": "d4a5a288216fab687e0c1d721a90f747",
+    "hash": "46ff1efc05c047c004d5387d2840aa41",
+    "content-hash": "5e1bf8b818adf877db6888c96cac5438",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -136,13 +136,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:dayspring-tech/SecurityBundle.git",
-                "reference": "2d651be6a64c45a87fa3fa1ab97cf05534fc17da"
+                "url": "https://bitbucket.org/dayspring-tech/securitybundle.git",
+                "reference": "a9a0f21cd08f424e6c50f52a3dc3c5b4d110b5e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dayspring-tech/SecurityBundle/zipball/2d651be6a64c45a87fa3fa1ab97cf05534fc17da",
-                "reference": "2d651be6a64c45a87fa3fa1ab97cf05534fc17da",
+                "url": "https://bitbucket.org/dayspring-tech/securitybundle/get/a9a0f21cd08f424e6c50f52a3dc3c5b4d110b5e5.zip",
+                "reference": "a9a0f21cd08f424e6c50f52a3dc3c5b4d110b5e5",
                 "shasum": ""
             },
             "require": {
@@ -181,11 +181,7 @@
                 "reset password",
                 "user authentication"
             ],
-            "support": {
-                "source": "https://github.com/dayspring-tech/SecurityBundle/tree/master",
-                "issues": "https://github.com/dayspring-tech/SecurityBundle/issues"
-            },
-            "time": "2016-03-17 22:39:37"
+            "time": "2016-03-17 22:50:53"
         },
         {
             "name": "dayspring-tech/UnitTestBundle",
@@ -1941,16 +1937,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.2",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430"
+                "reference": "7088908cca6bad27b3105c86b1fb013f1e383f6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b3313b618f4edd76523572531d5d7e22fe747430",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/7088908cca6bad27b3105c86b1fb013f1e383f6f",
+                "reference": "7088908cca6bad27b3105c86b1fb013f1e383f6f",
                 "shasum": ""
             },
             "require": {
@@ -1985,7 +1981,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-11 19:54:08"
+            "time": "2016-03-18 15:57:52"
         },
         {
             "name": "phing/phing",

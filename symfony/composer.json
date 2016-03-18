@@ -77,7 +77,7 @@
         },
         {
             "type": "vcs",
-            "url":  "git@github.com:dayspring-tech/SecurityBundle.git"
+            "url":  "https://bitbucket.org/dayspring-tech/securitybundle.git"
         }
     ]
 }
