@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed76376b79e0c498b6957c5e61064cbc",
-    "content-hash": "f27d989b52e7d432d61fd16dae5b2787",
+    "hash": "1a2250c1053eef58378b842a936ebf18",
+    "content-hash": "d4a5a288216fab687e0c1d721a90f747",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -130,6 +130,62 @@
                 "bootstrap"
             ],
             "time": "2016-01-23 17:44:32"
+        },
+        {
+            "name": "dayspring-tech/SecurityBundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:dayspring-tech/SecurityBundle.git",
+                "reference": "2d651be6a64c45a87fa3fa1ab97cf05534fc17da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dayspring-tech/SecurityBundle/zipball/2d651be6a64c45a87fa3fa1ab97cf05534fc17da",
+                "reference": "2d651be6a64c45a87fa3fa1ab97cf05534fc17da",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "sensio/framework-extra-bundle": "^3.0.2",
+                "symfony/framework-bundle": "^2.8.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0",
+                "symfony/symfony": "^2.8.2"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Dayspring\\SecurityBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Wong",
+                    "email": "jwong@dayspring-tech.com",
+                    "homepage": "http://dayspring-tech.com"
+                }
+            ],
+            "description": "Form login user authentication for Symfony2, with forgot/reset password, change password.",
+            "keywords": [
+                "change password",
+                "forgot password",
+                "login",
+                "reset password",
+                "user authentication"
+            ],
+            "support": {
+                "source": "https://github.com/dayspring-tech/SecurityBundle/tree/master",
+                "issues": "https://github.com/dayspring-tech/SecurityBundle/issues"
+            },
+            "time": "2016-03-17 22:39:37"
         },
         {
             "name": "dayspring-tech/UnitTestBundle",
@@ -4356,7 +4412,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dayspring-tech/unittestbundle": 20
+        "dayspring-tech/unittestbundle": 20,
+        "dayspring-tech/securitybundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
