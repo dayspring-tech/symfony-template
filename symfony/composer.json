@@ -31,7 +31,7 @@
         "oneup/flysystem-bundle": "0.5.0",
         "aws/aws-sdk-php": "~2.5",
         "lcobucci/jwt": "^3.1",
-        "dayspring-tech/SecurityBundle": "dev-master"
+        "dayspring-tech/SecurityBundle": "^0.1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "46ff1efc05c047c004d5387d2840aa41",
-    "content-hash": "5e1bf8b818adf877db6888c96cac5438",
+    "hash": "5982ecdbaaf96f6f17c8bf98245e3574",
+    "content-hash": "22e0afe88513e10b5c8f2499ea8bd2ec",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -133,26 +133,29 @@
         },
         {
             "name": "dayspring-tech/SecurityBundle",
-            "version": "dev-master",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/dayspring-tech/securitybundle.git",
-                "reference": "a9a0f21cd08f424e6c50f52a3dc3c5b4d110b5e5"
+                "reference": "8f7d58ccfe4bba7b6c4f29e3dee1a931255a74d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/dayspring-tech/securitybundle/get/a9a0f21cd08f424e6c50f52a3dc3c5b4d110b5e5.zip",
-                "reference": "a9a0f21cd08f424e6c50f52a3dc3c5b4d110b5e5",
+                "url": "https://bitbucket.org/dayspring-tech/securitybundle/get/8f7d58ccfe4bba7b6c4f29e3dee1a931255a74d2.zip",
+                "reference": "8f7d58ccfe4bba7b6c4f29e3dee1a931255a74d2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0",
+                "propel/propel-bundle": "1.5.*",
                 "sensio/framework-extra-bundle": "^3.0.2",
-                "symfony/framework-bundle": "^2.8.2"
+                "symfony/framework-bundle": "^2.8.2",
+                "symfony/swiftmailer-bundle": "~2.3",
+                "symfony/symfony": "2.8.*"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0",
-                "symfony/symfony": "^2.8.2"
+                "dayspring-tech/unittestbundle": "dev-master",
+                "phpunit/phpunit": "^4.0"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -181,7 +184,7 @@
                 "reset password",
                 "user authentication"
             ],
-            "time": "2016-03-17 22:50:53"
+            "time": "2016-03-18 21:05:32"
         },
         {
             "name": "dayspring-tech/UnitTestBundle",
@@ -1937,16 +1940,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.3.1",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "7088908cca6bad27b3105c86b1fb013f1e383f6f"
+                "reference": "a93889dfb1c0ae465b62236ede8d00d3ea260952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/7088908cca6bad27b3105c86b1fb013f1e383f6f",
-                "reference": "7088908cca6bad27b3105c86b1fb013f1e383f6f",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a93889dfb1c0ae465b62236ede8d00d3ea260952",
+                "reference": "a93889dfb1c0ae465b62236ede8d00d3ea260952",
                 "shasum": ""
             },
             "require": {
@@ -1981,7 +1984,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18 15:57:52"
+            "time": "2016-03-18 17:16:04"
         },
         {
             "name": "phing/phing",
@@ -4408,8 +4411,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dayspring-tech/unittestbundle": 20,
-        "dayspring-tech/securitybundle": 20
+        "dayspring-tech/unittestbundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
