@@ -27,6 +27,10 @@ test file.
 - Run `npm run grunt-build` to recompile LESS to CSS
 
 
+# Deployment to AWS
+
+This template project is designed to deploy to AWS via Opsworks. Read [DEPLOY_AWS.md](DEPLOY_AWS.md) for details
+
 
 # Third party frameworks and libraries
 
@@ -37,9 +41,11 @@ to address the vulnerability.
 
 | Framework/ Library | Version  | License
 | ------------------ | -------- | -------
-| Symfony            | 2.8.x    | MIT
+| Framework 1        | 2.3.x    | MIT
+| Library 1          | 1.7.1    | MIT
 | ...                | x.x.x    | ...
 
+[Roll out instructions](ROLLOUT.md "Instructions for rolling to stage and production.")
 
 # Prepare your code for Submission to Project
 
@@ -57,47 +63,47 @@ on you development machine and fix the conflicts.
 
 ## Step 2. Make a Pull Request
 
-You are now ready to create a pull request in bitbucket on the projectâ€™s repository.
+You are now ready to create a pull request in bitbucket on the project's repository.
 
 The pull request description must include the following checklist at the top to ensure
 that contributions may be reviewed without needless feedback loops and that your
 contributions can be included into the project as quickly as possible.
 
 ```md
-    | Q                | A
-    | ---------------- | ---
-    | Bug fix?         | [yes|no]
-    | New feature?     | [yes|no]
-    | Tests pass?      | [yes|no]
-    | New form inputs? | [yes|no]
-    | Other top 10?    | [yes|no] if yes enter OWASP numbers
-    | Fixed cards      | [url of Trello cards]
+| Q                | A
+| ---------------- | ---
+| Bug fix?         | [yes|no]
+| New feature?     | [yes|no]
+| Tests pass?      | [yes|no]
+| New form inputs? | [yes|no]
+| Other top 10?    | [yes|no] if yes enter OWASP numbers
+| Fixed cards      | [url of Trello cards]
 
-    ### Added libraries
+### Added libraries
 
-    | Name            | Version | Licence    | Added to README
-    | --------------- | ------- | ---------- | ---------------
-    | [name]          | [x.x.x] | [lic]      | {yes|no]
+| Name            | Version | Licence    | Added to README
+| --------------- | ------- | ---------- | ---------------
+| [name]          | [x.x.x] | [lic]      | {yes|no]
 ```
 
 Here is a simple example for a pull request that adds a field to a form as a new
 feature.
 
 ```md
-    | Q                | A
-    | ---------------- | ---
-    | Bug fix?         | no
-    | New feature?     | yes
-    | Tests pass?      | yes
-    | Form inputs?     | yes
-    | Other top 10?    | none
-    | Fixed cards      | https://trello.com/c/Wysdfsdfs, https://trello.com/c/Wymrdfsfs
+| Q                | A
+| ---------------- | ---
+| Bug fix?         | no
+| New feature?     | yes
+| Tests pass?      | yes
+| Form inputs?     | yes
+| Other top 10?    | none
+| Fixed cards      | https://trello.com/c/Wysdfsdfs, https://trello.com/c/Wymrdfsfs
 
-    ### Added libraries
+### Added libraries
 
-    | Name            | Version | Licence    | Added to README
-    | --------------- | ------- | ---------- | ---------------
-    | none | | |
+| Name            | Version | Licence    | Added to README
+| --------------- | ------- | ---------- | ---------------
+| none | | |
 ```
 
 The whole checklist must be included (do **not** remove lines that you think are not
@@ -107,4 +113,3 @@ relevant).
 
 Pick the Lead Developer or Project Manager to add as a reviewer to the pull request
 and Save.
-
