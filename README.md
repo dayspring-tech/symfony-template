@@ -4,7 +4,6 @@ This repo serves as a template for creating a "Dayspring Standard" Symfony 2.8 p
 Fork this repo to start a new project.
 
 ### Included libraries/packages
-- PHP 5.6
 - Symfony 2.8.x
 - Bootstrap 3
 - Propel/PropelBundle
@@ -12,6 +11,10 @@ Fork this repo to start a new project.
 - BraincraftedBootstrapBundle (for Symfony form styling)
 - Flysystem/FlysystemBundle
 - JWT (lcobucci/jwt)
+- Dayspring Login Bundle
+
+#### Other Tools
+- Vagrant box: dayspring-tech/dayspring-centos6-lamp-js (PHP 5.6, Node 4.2, MySQL 5.6)
 
 ### Instructions
 1. Edit the `Vagrantfile` to customize the `application_name`, `document_root`, and
