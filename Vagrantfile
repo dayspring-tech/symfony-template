@@ -14,10 +14,6 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "dayspring-tech/dayspring-centos6-lamp-js"
 
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://ruth/vagrant/boxes/dayspring-centos65-lamp-js-201601.box"
-
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -42,15 +38,15 @@ Vagrant.configure(2) do |config|
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
-  #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
-  #
+  
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    # vb.gui = true
+  
+    # Customize the amount of memory on the VM:
+    vb.memory = "4096"
+  end
+  
   # View the documentation for the provider you are using for more
   # information on available options.
 
@@ -143,6 +139,11 @@ Vagrant.configure(2) do |config|
       }
     }
 
+    chef.version = "12.10"
+    # set chef channel to stable on vagrant > 1.7.4
+    if Gem::Version.new(Vagrant::VERSION) > Gem::Version.new('1.7.4')
+      chef.channel = 'stable'
+    end
     chef.cookbooks_path = ["./vagrant/cookbooks"]
     chef.roles_path = "./vagrant/roles"
 
