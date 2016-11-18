@@ -44,6 +44,11 @@
 # Composer PHAR
 /composer.phar
 
+# Propel
+symfony/src/*/*/Model/map
+symfony/src/*/*/Model/om
+symfony/app/propel/sql/default.sql
+
 Vagrantfile.local
 opsworks.php
 node_modules
