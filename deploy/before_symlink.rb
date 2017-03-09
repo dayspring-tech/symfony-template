@@ -130,36 +130,20 @@ end
 ###### end symfony2
 
 
-###### grunt to compile bootstrap.css
-#
-# need to run this after symfony2 because symfony2 runs assetic:dump and we want to overwrite those resources
-#
-
-script "install less" do
-    interpreter "bash"
-    user "root"
-    cwd "/"
-    code <<-EOH
-    npm --global install less
-    npm --global install grunt-cli
-    EOH
+###### begin angular2
+if !node['vagrant']
+    script "yarn install and build" do
+        interpreter "bash"
+        user "root"
+        cwd "#{release_path}/angular"
+        code <<-EOH
+        npm -g install yarn
+        /usr/local/nodejs-binary/bin/yarn install --pure-lockfile
+        /usr/local/nodejs-binary/bin/yarn build
+        EOH
+    end
 end
-
-script "install node modules" do
-    interpreter "bash"
-    user "root"
-    cwd "#{release_path}/"
-    code <<-EOH
-    npm install --no-bin-links
-    EOH
-end
-
-execute "compile less" do
-    user new_resource.params[:deploy_data][:user]
-    cwd "#{release_path}/"
-    command "#{release_path}/node_modules/grunt-cli/bin/grunt build"
-end
-###### end grunt
+###### end angular2
 
 
 # install standard crons on all instances

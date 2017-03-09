@@ -5,9 +5,10 @@ Fork this repo to start a new project.
 
 ### Included libraries/packages
 - Symfony 2.8.x
-- Bootstrap 3
+- Bootstrap 3 (sass)
 - Propel/PropelBundle
-- Grunt
+- Angular 2.x
+- Webpack 2.x
 - BraincraftedBootstrapBundle (for Symfony form styling)
 - Flysystem/FlysystemBundle
 - JWT (lcobucci/jwt)
@@ -22,12 +23,28 @@ Fork this repo to start a new project.
 2. Copy `Vagrantfile.local.example` to `Vagrantfile.local` and fill in your GitHub
 OAuth token. See the instructions in the file for more details on generating a GitHub OAuth token.
 3. Run `vagrant up`
-4. Browse to [http://localhost:8080/app_dev.php/_demo/] to view the bootstrap theme
+4. Browse to [http://localhost:8080/app_dev.php/_demo/](http://localhost:8080/app_dev.php/_demo/) to view the bootstrap theme
 test file.
 
-### Notes
-- Bootstrap LESS files are located in `/less`. Edit these to change styles.
-- Run `npm run grunt-build` to recompile LESS to CSS
+### Angular2 / Bootstrap / Webpack
+This template project includes the angular2-starter from [https://github.com/mdenson-dayspring/angular2-starter](https://github.com/mdenson-dayspring/angular2-starter). (As of 2017-03-09, [8ca8e05](https://github.com/mdenson-dayspring/angular2-starter/tree/8ca8e05dd30e66d0e4319a4fe5e53e3e8ddad108))
+
+Webpack handles angular2 as well as Bootstrap. The Symfony dev environment is expecting webpack-dev-server to be running at http://localhost:3000/ and will pull assets for the "webpack" asset group from there. 
+
+#### To start (run commands inside `angular` directory):
+1. Install Node/NPM. (Node version 6.7.0+)
+2. Install Yarn `npm install -g yarn`
+3. Install dependencies `yarn`
+4. Run `yarn start` to start the dev server
+5. Browse to [http://localhost:8080/app_dev.php/_demo/angular](http://localhost:8080/app_dev.php/_demo/angular) to view the sample angular2 app
+
+#### To build:
+1. Run `yarn build`
+2. Artifacts from the build will be found in `symfony/web/webpack/prod`. Symfony's prod environment is configured to look there for assets for the "webpack" asset group.
+
+
+#### Bootstrap
+bootstrap-sass is included in this template project. Webpack will compile styles to `app.css`. Add or override styles in `angular/src/sass/styles.scss`
 
 
 # Deployment to AWS
@@ -50,11 +67,12 @@ to address the vulnerability.
 
 [Roll out instructions](ROLLOUT.md "Instructions for rolling to stage and production.")
 
+
 # Prepare your code for Submission to Project
 
 Whenever you feel that your code is ready for submission, follow the following steps.
 
-## Step 1. Sync feature branch current code tree
+### Step 1. Sync feature branch current code tree
 
 In most cases you will have created a feature branch starting from the develop branch.
 In other cases you may have created a hotfix from master or a feature branch from a
@@ -64,7 +82,7 @@ It is probably simplest to go into bitbucket and Sync the branch you have been w
 If there are conflicts you will need to merge the correct branch into your working branch
 on you development machine and fix the conflicts.
 
-## Step 2. Make a Pull Request
+### Step 2. Make a Pull Request
 
 You are now ready to create a pull request in bitbucket on the project's repository.
 
@@ -86,7 +104,7 @@ contributions can be included into the project as quickly as possible.
 
 | Name            | Version | Licence    | Added to README
 | --------------- | ------- | ---------- | ---------------
-| [name]          | [x.x.x] | [lic]      | {yes|no]
+| [name]          | [x.x.x] | [lic]      | [yes|no]
 ```
 
 Here is a simple example for a pull request that adds a field to a form as a new
@@ -112,7 +130,7 @@ feature.
 The whole checklist must be included (do **not** remove lines that you think are not
 relevant).
 
-## Step 3: Pick the Reviewer(s)
+### Step 3: Pick the Reviewer(s)
 
 Pick the Lead Developer or Project Manager to add as a reviewer to the pull request
 and Save.

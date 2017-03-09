@@ -36,7 +36,7 @@ These are minimal settings to get going. Look for places where you need to custo
     "nodejs": {
         "install_method": "binary",
         "src_url": "http://nodejs.org/dist/",
-        "version": "4.2.6",
+        "version": "6.9.4",
         "dir": "/usr/local"
     },
     "composer": {
