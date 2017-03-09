@@ -19,6 +19,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/angular")
+     * @Template()
+     */
+    public function angularAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/secure", name="demo_secure")
      * @Template()
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")

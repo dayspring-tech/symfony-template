@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <my-app></my-app>
+{% endblock %}
+
+{% block page_javascripts %}
+    <script src="{{ asset('polyfills.js', 'webpack') }}"></script>
+    <script src="{{ asset('vendor.js', 'webpack') }}"></script>
+    <script src="{{ asset('app.js', 'webpack') }}"></script>
+{% endblock %}

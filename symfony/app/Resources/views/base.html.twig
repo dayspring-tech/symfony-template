@@ -12,7 +12,7 @@
     <title>Theme Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('css/compiled/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('app.css', 'webpack') }}" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="{{ asset('css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
 
@@ -34,10 +34,12 @@
 <body role="document">
 
 {% block body %}
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 {% endblock %}
 
+{% block page_javascripts %}
+{% endblock %}
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

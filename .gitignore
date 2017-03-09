@@ -103,3 +103,4 @@ fabric.properties
 # project specific
 symfony/src/Dayspring/SecurityBundle/Model/map
 symfony/src/Dayspring/SecurityBundle/Model/om
+symfony/web/webpack

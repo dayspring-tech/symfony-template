@@ -3,7 +3,6 @@
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings />
-      <phpunit_by_interpreter interpreter_id="3d27565b-7742-47d6-aaa5-1f8485520cd2" interpreter_name="Remote PHP 5.6 (symfony-template)" load_method="CUSTOM_LOADER" configuration_file_path="/vagrant/symfony/app/phpunit.xml.dist" custom_loader_path="/vagrant/symfony/vendor/autoload.php" phpunit_phar_path="/usr/bin/phpunit" use_configuration_file="true" />
     </phpunit_settings>
   </component>
 </project>

@@ -30,6 +30,10 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    assets:
+        packages:
+            webpack:
+                base_path: '/webpack/prod/'
 
 # Twig Configuration
 twig:
