@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "caa79fda6e399ffc6807a60f7a3b3f0f",
-    "content-hash": "7c910e43d911c2dbe546349e13e09375",
+    "hash": "eeb851d8debb63d7026fc5f94121ff4a",
+    "content-hash": "e9364b262d213c24c61a83b912eba6c0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -133,16 +133,16 @@
         },
         {
             "name": "dayspring-tech/login-bundle",
-            "version": "0.6.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dayspring-tech/LoginBundle.git",
-                "reference": "b351b611b83ef5b55794c8d022cc1ef021e0ad70"
+                "reference": "5d33ce08e5138b3a841815bcf2f9686ad10291ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dayspring-tech/LoginBundle/zipball/b351b611b83ef5b55794c8d022cc1ef021e0ad70",
-                "reference": "b351b611b83ef5b55794c8d022cc1ef021e0ad70",
+                "url": "https://api.github.com/repos/dayspring-tech/LoginBundle/zipball/5d33ce08e5138b3a841815bcf2f9686ad10291ff",
+                "reference": "5d33ce08e5138b3a841815bcf2f9686ad10291ff",
                 "shasum": ""
             },
             "require": {
@@ -190,7 +190,7 @@
                 "reset password",
                 "user authentication"
             ],
-            "time": "2016-08-10 00:28:23"
+            "time": "2016-12-23 23:11:52"
         },
         {
             "name": "dayspring-tech/service-test-helper",
