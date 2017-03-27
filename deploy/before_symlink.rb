@@ -202,3 +202,17 @@ end
 #    # add the line below if using wordpress
 #    #       cat .htaccess-wordpress >> #{release_path}/#{new_resource.params[:deploy_data][:document_root]}/.htaccess
 #end
+
+template "#{release_path}/#{new_resource.params[:deploy_data][:document_root]}/.htaccess" do
+    source "#{release_path}/deploy/templates/symfony-htaccess.erb"
+    local true
+    mode '0644'
+    owner "root"
+    group "root"
+    variables(
+        :user => node[:apache][:user],
+        :env => node[:symfony][:env],
+        :symfonyroot => "#{release_path}/#{node[:symfony][:root]}",
+        :frontend => node[:symfony][:frontend]
+    )
+end
