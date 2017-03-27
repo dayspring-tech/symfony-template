@@ -1,6 +1,31 @@
 Chef::Log.info(new_resource.params[:deploy_data])
 Chef::Log.info(new_resource)
 
+# small hack to get php-gd to install correctly,
+# it depends on a version of libwebp that is newer than amzn-main has
+script "install php-gd" do
+    interpreter "bash"
+    user "root"
+    code <<-EOH
+    yum -y --disablerepo=amzn-main install libwebp
+    yum -y install php-gd
+    EOH
+end
+
+script "install yum repos for npm and yarn" do
+    interpreter "bash"
+    user "root"
+    cwd "/root"
+    code <<-EOH
+    curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+    wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+    EOH
+end
+
+package "yarn" do
+    action :install
+end
+
 
 ############## Symfony ####################
 
@@ -132,14 +157,13 @@ end
 
 ###### begin angular2
 if !node['vagrant']
-    script "yarn install and build" do
+    script "yarn: install and build" do
         interpreter "bash"
         user "root"
         cwd "#{release_path}/angular"
         code <<-EOH
-        npm -g install yarn
-        /usr/local/nodejs-binary/bin/yarn install --pure-lockfile
-        /usr/local/nodejs-binary/bin/yarn build
+        yarn install --pure-lockfile
+        yarn build
         EOH
     end
 end
@@ -178,3 +202,17 @@ end
 #    # add the line below if using wordpress
 #    #       cat .htaccess-wordpress >> #{release_path}/#{new_resource.params[:deploy_data][:document_root]}/.htaccess
 #end
+
+template "#{release_path}/#{new_resource.params[:deploy_data][:document_root]}/.htaccess" do
+    source "#{release_path}/deploy/templates/symfony-htaccess.erb"
+    local true
+    mode '0644'
+    owner "root"
+    group "root"
+    variables(
+        :user => node[:apache][:user],
+        :env => node[:symfony][:env],
+        :symfonyroot => "#{release_path}/#{node[:symfony][:root]}",
+        :frontend => node[:symfony][:frontend]
+    )
+end

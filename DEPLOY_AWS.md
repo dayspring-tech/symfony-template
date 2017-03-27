@@ -33,12 +33,6 @@ These are minimal settings to get going. Look for places where you need to custo
         "default_charset": "UTF-8",
         "expose_php": "Off"
     },
-    "nodejs": {
-        "install_method": "binary",
-        "src_url": "http://nodejs.org/dist/",
-        "version": "6.9.4",
-        "dir": "/usr/local"
-    },
     "composer": {
         "install_globally": true,
         "github_oauth": "[GITHUB OAUTH TOKEN]"
@@ -66,7 +60,6 @@ These are minimal settings to get going. Look for places where you need to custo
             "php-common",
             "php-xmlrpc",
             "php-devel",
-            "php-gd",
             "php-cli",
             "php-pear-Auth-SASL",
             "php-mcrypt",
@@ -118,7 +111,6 @@ These are minimal settings to get going. Look for places where you need to custo
 - Setup
   - dt_opsworks::system_timezone
   - composer
-  - nodejs
   - dt_opsworks::php_ini
   - clamav
   - newrelic
