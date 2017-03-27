@@ -60,7 +60,6 @@ These are minimal settings to get going. Look for places where you need to custo
             "php-common",
             "php-xmlrpc",
             "php-devel",
-            "php-gd",
             "php-cli",
             "php-pear-Auth-SASL",
             "php-mcrypt",

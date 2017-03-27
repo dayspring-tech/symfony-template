@@ -1,6 +1,16 @@
 Chef::Log.info(new_resource.params[:deploy_data])
 Chef::Log.info(new_resource)
 
+# small hack to get php-gd to install correctly,
+# it depends on a version of libwebp that is newer than amzn-main has
+script "install php-gd" do
+    interpreter "bash"
+    user "root"
+    code <<-EOH
+    yum -y --disablerepo=amzn-main install libwebp
+    yum -y install php-gd
+    EOH
+end
 
 script "install yum repos for npm and yarn" do
     interpreter "bash"
