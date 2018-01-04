@@ -1,6 +1,17 @@
 Chef::Log.info(new_resource.params[:deploy_data])
 Chef::Log.info(new_resource)
 
+# install amazon-ssm-agent so we can run commands via EC2 SSM
+if !node['vagrant']
+    script "install ssm-agent" do
+        interpreter "bash"
+        user "root"
+        code <<-EOH
+        yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+        EOH
+    end
+end
+
 # small hack to get php-gd to install correctly,
 # it depends on a version of libwebp that is newer than amzn-main has
 script "install php-gd" do
