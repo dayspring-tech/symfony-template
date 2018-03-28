@@ -7,7 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "apache2::mod_php5"
+directory "#{node[:apache][:dir]}/mods-available/"
+directory "#{node[:apache][:dir]}/mods-enabled/"
+
+include_recipe "apache2::mod_php"
+
 
 node[:deploy].each do |application, deploy|
 
@@ -49,3 +53,10 @@ node[:deploy].each do |application, deploy|
 
 	end
 end
+
+if node['apache']['mod_php']['module_name'] == 'php7'
+    link "#{node['apache']['dir']}/mods-enabled/php.conf" do
+        to "#{node['apache']['dir']}/mods-available/php.conf"
+    end
+end
+

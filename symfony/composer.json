@@ -30,7 +30,8 @@
         "league/flysystem-aws-s3-v2": "^1.0",
         "lcobucci/jwt": "^3.1",
         "dayspring-tech/service-test-helper": "^0.2.0",
-        "dayspring-tech/login-bundle": "^1.0.0"
+        "dayspring-tech/login-bundle": "^1.0.0",
+        "symfony/yaml": "^3.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
