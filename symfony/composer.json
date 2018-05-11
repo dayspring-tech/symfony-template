@@ -32,8 +32,8 @@
         "oneup/flysystem-bundle": "^1.11.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "lcobucci/jwt": "^3.1",
-        "dayspring-tech/service-test-helper": "dev-symfony_3",
-        "dayspring-tech/login-bundle": "dev-feature/symfony_3"
+        "dayspring-tech/service-test-helper": "^2.0.0",
+        "dayspring-tech/login-bundle": "^2.0.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
@@ -72,5 +72,11 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/dayspring-tech/PropelBundle.git"
+        }
+    ]
 }

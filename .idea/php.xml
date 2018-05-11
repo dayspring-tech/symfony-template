@@ -96,6 +96,7 @@
       <path value="$PROJECT_DIR$/symfony/vendor/guzzlehttp/promises" />
     </include_path>
   </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/symfony/vendor/autoload.php" />

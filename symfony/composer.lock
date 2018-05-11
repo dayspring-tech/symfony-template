@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e003f2dfa27c85374cc7fe0ad83536dd",
+    "content-hash": "d1afb09ff116770652a40f142d50bed0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -205,16 +205,16 @@
         },
         {
             "name": "dayspring-tech/login-bundle",
-            "version": "dev-feature/symfony_3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dayspring-tech/LoginBundle.git",
-                "reference": "d5378094130cee78b4a420e3ddcd46c51b3e607e"
+                "reference": "956889083bc8450a79ca37d1b15749c7117e7ab0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dayspring-tech/LoginBundle/zipball/d5378094130cee78b4a420e3ddcd46c51b3e607e",
-                "reference": "d5378094130cee78b4a420e3ddcd46c51b3e607e",
+                "url": "https://api.github.com/repos/dayspring-tech/LoginBundle/zipball/956889083bc8450a79ca37d1b15749c7117e7ab0",
+                "reference": "956889083bc8450a79ca37d1b15749c7117e7ab0",
                 "shasum": ""
             },
             "require": {
@@ -263,20 +263,20 @@
                 "reset password",
                 "user authentication"
             ],
-            "time": "2018-05-11T17:50:23+00:00"
+            "time": "2018-05-11T21:46:51+00:00"
         },
         {
             "name": "dayspring-tech/service-test-helper",
-            "version": "dev-symfony_3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dayspring-tech/ServiceTestHelper.git",
-                "reference": "5340fc342135a87c8c3998afe0d3b3a0362f6cd1"
+                "reference": "791737a8b9f2571aa377d8ad4a9965156ec5c9cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dayspring-tech/ServiceTestHelper/zipball/5340fc342135a87c8c3998afe0d3b3a0362f6cd1",
-                "reference": "5340fc342135a87c8c3998afe0d3b3a0362f6cd1",
+                "url": "https://api.github.com/repos/dayspring-tech/ServiceTestHelper/zipball/791737a8b9f2571aa377d8ad4a9965156ec5c9cf",
+                "reference": "791737a8b9f2571aa377d8ad4a9965156ec5c9cf",
                 "shasum": ""
             },
             "require": {
@@ -310,7 +310,7 @@
                 "symfony service",
                 "unit test"
             ],
-            "time": "2018-05-11T18:19:52+00:00"
+            "time": "2018-05-11T21:45:14+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2882,14 +2882,8 @@
             "version": "1.6.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/propelorm/PropelBundle.git",
-                "reference": "e6efcd4bfa4740e9f75c87de2ca46c1cf876d888"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/PropelBundle/zipball/e6efcd4bfa4740e9f75c87de2ca46c1cf876d888",
-                "reference": "e6efcd4bfa4740e9f75c87de2ca46c1cf876d888",
-                "shasum": ""
+                "url": "https://github.com/dayspring-tech/PropelBundle.git",
+                "reference": "25d59bb6e6c2d5bbe5ecc32a62cadbd8d762b995"
             },
             "require": {
                 "propel/propel1": "^1.6.8",
@@ -2923,7 +2917,6 @@
                     "Tests/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2939,7 +2932,7 @@
                 "persistence",
                 "propel"
             ],
-            "time": "2017-11-13T18:47:50+00:00"
+            "time": "2018-05-11T22:59:39+00:00"
         },
         {
             "name": "propel/propel1",
@@ -5407,9 +5400,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "propel/propel-bundle": 20,
-        "dayspring-tech/service-test-helper": 20,
-        "dayspring-tech/login-bundle": 20
+        "propel/propel-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
