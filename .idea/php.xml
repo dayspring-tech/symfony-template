@@ -13,9 +13,7 @@
       <path value="$PROJECT_DIR$/symfony/vendor/aws/aws-sdk-php" />
       <path value="$PROJECT_DIR$/symfony/vendor/psr/log" />
       <path value="$PROJECT_DIR$/symfony/vendor/twig/extensions" />
-      <path value="$PROJECT_DIR$/symfony/vendor/guzzle/guzzle" />
       <path value="$PROJECT_DIR$/symfony/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/symfony/vendor/league/flysystem-aws-s3-v2" />
       <path value="$PROJECT_DIR$/symfony/vendor/sensio/distribution-bundle" />
       <path value="$PROJECT_DIR$/symfony/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/symfony/vendor/ekino/newrelic-bundle" />
@@ -90,6 +88,12 @@
       <path value="$PROJECT_DIR$/symfony/vendor/sebastian/object-reflector" />
       <path value="$PROJECT_DIR$/symfony/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/symfony/vendor/phpunit/phpcov" />
+      <path value="$PROJECT_DIR$/symfony/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/symfony/vendor/league/flysystem-aws-s3-v3" />
+      <path value="$PROJECT_DIR$/symfony/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/symfony/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/symfony/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/symfony/vendor/guzzlehttp/promises" />
     </include_path>
   </component>
   <component name="PhpUnit">
