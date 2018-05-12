@@ -194,7 +194,7 @@
 
     <target name="phpcs"
             description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
-        <exec executable="phpcs">
+        <exec executable="./bin/phpcs">
             <arg value="--standard=${basedir}/build/phpcs.xml" />
             <!--<arg value="- -ignore=${basedir}/vendor/*,${basedir}/app/*,${basedir}/web/*,*.js,*.css" />-->
             <arg path="${basedir}/src" />
@@ -202,7 +202,7 @@
     </target>
 
     <target name="phpcs-ci" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
-        <exec executable="phpcs" output="/dev/null">
+        <exec executable="./bin/phpcs" output="/dev/null">
             <arg value="--report=checkstyle" />
             <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
             <arg value="--standard=${basedir}/build/phpcs.xml" />
@@ -215,7 +215,7 @@
 
     <target name="phpmd"
             description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
-        <exec executable="phpmd">
+        <exec executable="./bin/phpmd">
             <arg path="${basedir}/app/Resources,${basedir}/src" />
             <arg value="text" />
             <arg value="${basedir}/build/phpmd.xml" />
@@ -225,7 +225,7 @@
     </target>
 
     <target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
-        <exec executable="phpmd">
+        <exec executable="./bin/phpmd">
             <arg path="${basedir}/app/Resources,${basedir}/src" />
             <arg value="xml" />
             <arg value="${basedir}/build/phpmd.xml" />
@@ -258,7 +258,7 @@
             <arg value="--env=test" />
         </exec>
 
-        <exec executable="phpunit"
+        <exec executable="./bin/phpunit"
               failonerror="false">
             <arg value="-c" />
             <arg value="app/phpunit-jenkins.xml.dist" />
@@ -273,7 +273,7 @@
             <arg value="--env=test" />
         </exec>
 
-        <exec executable="phpunit"
+        <exec executable="./bin/phpunit"
               failonerror="false">
             <arg value="-c" />
             <arg value="app/phpunit.xml.dist" />
