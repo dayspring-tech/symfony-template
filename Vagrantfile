@@ -1,5 +1,3 @@
-Vagrant::DEFAULT_SERVER_URL.replace('https://vagrantcloud.com')
-
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
