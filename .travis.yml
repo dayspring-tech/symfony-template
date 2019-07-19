@@ -30,7 +30,7 @@ before_install:
     - if [ "${SYMFONY_VERSION}" != "" ]; then composer require --no-update -d symfony "symfony/symfony:${SYMFONY_VERSION}"; fi;
 
 install:
-    - composer update ${COMPOSER_FLAGS} --prefer-source -d symfony
+    - php -d memory_limit=-1 `which composer` update ${COMPOSER_FLAGS} --prefer-source -d symfony
 
 before_script:
   - mysql -u root -e "drop database if exists mydatabase;"
