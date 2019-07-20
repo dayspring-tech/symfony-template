@@ -20,7 +20,6 @@ class DefaultControllerTest extends WebTestCase
         $client = self::createClient();
 
         $crawler = $client->request("GET", "/_demo/");
-var_dump($client->getResponse()->getContent());
         $this->assertGreaterThan(
             0,
             $crawler->filter('html:contains("Theme example")')->count()

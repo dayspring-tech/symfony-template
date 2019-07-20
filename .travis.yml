@@ -1,44 +1,44 @@
 sudo: false
 
-language: php
-
-php:
-    - 7.2
-    - 7.3
-
-services:
-    - mysql
-
 cache:
     directories:
         - $HOME/.composer/cache/files
         - symfony/vendor
 
-env:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - SYMFONY_VERSION="~3.0"
-    - SYMFONY_VERSION="~3.0" COMPOSER_FLAGS="--prefer-lowest"
-
 matrix:
-    fast_finish: true
+    include:
+        - language: php
+          services:
+              - mysql
+          php:
+              - 7.2
+              - 7.3
+          before_install:
+              - bash -c 'if [[ "$TRAVIS_PHP_VERSION" != *"hhvm"* ]]; then phpenv config-rm xdebug.ini; fi;'
+              - composer self-update
+              - if [ "${SYMFONY_VERSION}" != "" ]; then composer require --no-update -d symfony "symfony/symfony:${SYMFONY_VERSION}"; fi;
 
-    allow_failures:
-        - php: hhvm
+          install:
+              - COMPOSER_MEMORY_LIMIT=-1 composer update ${COMPOSER_FLAGS} --prefer-source -d symfony
 
-before_install:
-    - bash -c 'if [[ "$TRAVIS_PHP_VERSION" != *"hhvm"* ]]; then phpenv config-rm xdebug.ini; fi;'
-    - composer self-update
-    - if [ "${SYMFONY_VERSION}" != "" ]; then composer require --no-update -d symfony "symfony/symfony:${SYMFONY_VERSION}"; fi;
+          before_script:
+              - mysql -u root -e "drop database if exists mydatabase;"
+              - mysql -u root -e "create database mydatabase;"
+              - mysql -u root -e "grant all privileges on mydatabase.* to 'devuser' identified by 'devpass'; flush privileges;"
 
-install:
-    - COMPOSER_MEMORY_LIMIT=-1 composer update ${COMPOSER_FLAGS} --prefer-source -d symfony
+          script:
+              - symfony/app/console propel:migration:migrate
+              - symfony/app/console propel:fixtures:load
+              - symfony/bin/phpunit --colors -c symfony/app
 
-before_script:
-  - mysql -u root -e "drop database if exists mydatabase;"
-  - mysql -u root -e "create database mydatabase;"
-  - mysql -u root -e "grant all privileges on mydatabase.* to 'devuser' identified by 'devpass'; flush privileges;"
+        - language: node_js
+          node_js:
+              - "10"
+          script:
+              - npm run affected:test -- --all
 
-script:
-    - symfony/app/console propel:migration:migrate
-    - symfony/app/console propel:fixtures:load
-    - symfony/bin/phpunit --colors -c symfony/app
+jobs:
+    include:
+        - stage: deploy
+          script:
+              - echo Deploy
