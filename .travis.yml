@@ -38,6 +38,8 @@ jobs:
           language: node_js
           node_js:
               - "10"
+          install:
+              - npm install --prefix angular
           script:
               - npm run affected:test --prefix angular -- --all
 
@@ -46,6 +48,8 @@ jobs:
           language: node_js
           node_js:
               - "10"
+          install:
+              - npm install --prefix angular
           script:
               - npm run build --prefix angular -- --aot
 
