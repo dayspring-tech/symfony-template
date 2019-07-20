@@ -13,7 +13,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->renderView('DemoBundle:Default:index.html.twig', array());
+        return $this->render('DemoBundle:Default:index.html.twig', array());
     }
 
     /**
@@ -21,7 +21,7 @@ class DefaultController extends Controller
      */
     public function angularAction()
     {
-        return $this->renderView('DemoBundle:Default:angular.html.twig', array());
+        return $this->render('DemoBundle:Default:angular.html.twig', array());
     }
 
     /**
@@ -30,6 +30,6 @@ class DefaultController extends Controller
      */
     public function secureAction()
     {
-        return $this->renderView('DemoBundle:Default:angular.html.twig', array());
+        return $this->render('DemoBundle:Default:angular.html.twig', array());
     }
 }
