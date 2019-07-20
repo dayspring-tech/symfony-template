@@ -4,7 +4,7 @@ sudo: false
 jobs:
     include:
         - stage: test
-          name: "Symfony"
+          name: "symfony"
           language: php
           cache:
               directories:
@@ -34,12 +34,20 @@ jobs:
               - symfony/bin/phpunit --colors -c symfony/app
 
         - stage: test
-          name: "Angular"
+          name: "angular test"
           language: node_js
           node_js:
               - "10"
           script:
-              - npm run affected:test -- --all
+              - npm run affected:test --prefix angular -- --all
+
+        - stage: build
+          name: "angular build"
+          language: node_js
+          node_js:
+              - "10"
+          script:
+              - npm run build --prefix angular -- --aot
 
         - stage: deploy
           language: bash
