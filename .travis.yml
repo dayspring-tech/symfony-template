@@ -1,13 +1,15 @@
 sudo: false
 
-cache:
-    directories:
-        - $HOME/.composer/cache/files
-        - symfony/vendor
 
-matrix:
+jobs:
     include:
-        - language: php
+        - stage: test
+          name: "Symfony"
+          language: php
+          cache:
+              directories:
+                  - $HOME/.composer/cache/files
+                  - symfony/vendor
           services:
               - mysql
           php:
@@ -31,14 +33,16 @@ matrix:
               - symfony/app/console propel:fixtures:load
               - symfony/bin/phpunit --colors -c symfony/app
 
-        - language: node_js
+        - stage: test
+          name: "Angular"
+          language: node_js
           node_js:
               - "10"
           script:
               - npm run affected:test -- --all
 
-jobs:
-    include:
         - stage: deploy
+          language: bash
+          name: "Deploy"
           script:
               - echo Deploy
