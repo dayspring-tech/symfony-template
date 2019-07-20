@@ -12,6 +12,7 @@ services:
 cache:
     directories:
         - $HOME/.composer/cache/files
+        - symfony/vendor
 
 env:
     - COMPOSER_FLAGS="--prefer-lowest"
