@@ -94,11 +94,34 @@ Vagrant.configure(2) do |config|
       },
       "composer" => {
         'install_globally' => true,
-        'github_oauth' => composer_github_oauth
+        'github_oauth' => composer_github_oauth,
+        'url' => 'https://getcomposer.org/composer-1.phar'
       },
       "php_ini" => {
         "date.timezone" => "UTC"
       },
+      "php" => {
+        "version" => "7.4.0",
+        "packages" => [
+            "php",
+            "php-mbstring",
+            "php-soap",
+            "php-pdo",
+            "php-intl",
+            "php-ldap",
+            "php-mysqli",
+            "php-sqlite3",
+            "php-xml",
+            "php-common",
+            "php-xmlrpc",
+            "php-devel",
+            "php-cli",
+            "php-pecl-memcache",
+            "php-pear",
+            "php-pecl-zip",
+            "php-opcache"
+        ]
+      },      
 
       # stuff below here is just vagrant stuff, no need to modify
       # some of this is to provide what opsworks would have provided

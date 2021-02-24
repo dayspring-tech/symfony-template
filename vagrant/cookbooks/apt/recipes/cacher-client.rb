@@ -2,7 +2,7 @@
 # Cookbook:: apt
 # Recipe:: cacher-client
 #
-# Copyright:: 2011-2016, Chef Software, Inc.
+# Copyright:: 2011-2017, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ execute 'Remove proxy from /etc/apt/apt.conf' do
 end
 
 if node['apt']['cacher_client']['cacher_server'].empty?
-  Chef::Log.warn("No cache server defined in node['apt']['cacher_servers']. Not setting up caching")
+  Chef::Log.warn("No cache server defined in node['apt']['cacher_client']['cacher_server']. Not setting up caching")
   f = file '/etc/apt/apt.conf.d/01proxy' do
     action(node['apt']['compiletime'] ? :nothing : :delete)
   end

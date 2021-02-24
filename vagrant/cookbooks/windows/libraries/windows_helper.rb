@@ -20,6 +20,8 @@
 require 'uri'
 require 'Win32API' if Chef::Platform.windows?
 require 'chef/exceptions'
+require 'openssl'
+require 'chef/mixin/powershell_out'
 
 module Windows
   module Helper
@@ -93,7 +95,7 @@ module Windows
       buf.strip
     end
 
-    def is_package_installed?(package_name) # rubocop:disable Style/PredicateName
+    def is_package_installed?(package_name) # rubocop:disable Naming/PredicateName
       installed_packages.include?(package_name)
     end
 

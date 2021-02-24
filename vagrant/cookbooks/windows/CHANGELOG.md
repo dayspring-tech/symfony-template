@@ -2,6 +2,84 @@
 
 This file is used to list changes made in each version of the windows cookbook.
 
+## 4.3.4 (2018-07-18)
+
+- Fix error message typo in windows_feature_powershell
+- Use win32-certstore 0.1.7 for bugfixes
+
+## 4.3.3 (2018-07-05)
+
+- Fix failures on PS 3.0 in windows_feature_powershell
+
+## 4.3.2 (2018-06-13)
+
+- Don't error in windows_feature_dism when providing a source
+
+## 4.3.1 (2018-06-11)
+
+- Make sure to quote each individual user to grant share access to
+
+## 4.3.0 (2018-06-11)
+
+- Add the windows_user_privilege resource which can grant privileges like Logon As a Service
+- Add windows_feature_powershell support for Windows 2008 R2 by not downcasing the feature names there and modifying the shell_out commands to make older output look like the 2012+ output
+- windows_certificate resource has been reworked to use the new win32-certstore gem. This gem abstracts away much of the logic and will allow us to better support certificates on Windows, especially on non-english systems.
+- Convert pester tests to InSpec for easier testing with ChefDK out of the box
+- Added additional tests for better testing in AppVeyor
+- Stop importing the servermanager module in windows_feature_powershell since we require PowerShell 3.0 and we don't need to do this there
+- Improve the error messages in Windows feature to get the Windows versions right
+- Increase readability in version logic with helpers in windows_feature resources
+
+## 4.2.5 (2018-05-28)
+
+- Add quoting to Path when creating new Share
+
+## 4.2.4 (2018-05-14)
+
+- Fix the platform version check in windows_share
+
+## 4.2.3 (2018-05-07)
+
+- Include the helper in the action class to prevent failures with the zipfile resource
+
+## 4.2.2 (2018-04-24)
+
+- Properly fail in windows_share on Windows 2008 R2 since we lack the cmdlets to manipulates shares on those systems.
+
+## 4.2.1 (2018-04-17)
+
+- Make sure shares can have spaces in the share name
+
+## 4.2.0 (2018-04-16)
+
+- Initial rewrite of windows_share to use PowerShell for share creation. This introduces multiple new properties and resolves a good number of longstanding issues. Please be sure to report any issues you see with this so we can stabilize this resource and include it in Chef 15!
+- Resolve failures in windows_certificate
+
+## 4.1.4 (2018-03-29)
+
+- Raise in windows_feature_powershell if we're on PS < 3.0
+
+## 4.1.3 (2018-03-28)
+
+- Restore support for Windows 2008 R2 in windows_feature_dism
+
+## 4.1.2 (2018-03-27)
+
+- Improve creation messaging for shares
+- Allow feature names to be case insensitive in windows_feature
+
+## 4.1.1 (2018-03-23)
+
+- Simplify delete action slightly in windows_pagefile
+- Don't use win_friendly_path helper in windows_pagefile since we already coerce the path value
+
+## 4.1.0 (2018-03-21)
+
+- Adds Caching for WIndows Feature Powershell resource using the same sort of logic we use on windows_feature_dism. This gives us a 3.5X speedup when no features need to be changed (subsequent runs after the change)
+- Warn if we're on w2k12 and trying to use source/management properties in windows_feature_powershell since that doesn't work.
+- Properly parse features into arrays so installing an array of features works in dism/powershell. This is the preferred way to install a number of features and will be faster than a large number of feature resources
+- Fix description of properties for pagefile in the readme
+
 ## 4.0.2 (2018-03-20)
 
 - Enable FC016 testing

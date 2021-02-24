@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 #
 # Cookbook:: postgresql
 # Library:: default
@@ -108,9 +109,8 @@ module Opscode
         return 'ymd'
         elseif (posD < posM)
         return 'dmy'
-      else
-        return 'mdy'
       end
+      'mdy'
     end
 
     #######
@@ -201,7 +201,7 @@ module Opscode
         # in spite of what the sysadmin had specified in the symlink.
         # (There are many duplicates under tzdir, with the same timezone
         # content appearing as an average of 2-3 different file names.)
-        path = ::File.readlink('/etc/localtime')
+        path = ::File.realdirpath('/etc/localtime')
         bestzonename = path.gsub("#{tzdir}/", '')
       else # /etc/localtime is a file, so scan for it under tzdir
         localtime_content = File.read('/etc/localtime')
@@ -246,7 +246,7 @@ module Opscode
 
         resultbuf = [
           'Etc/GMT',
-          (-std_ofs > 0) ? '+' : '',
+          -std_ofs > 0 ? '+' : '',
           (-std_ofs).to_s,
         ].join('')
       end
@@ -288,8 +288,7 @@ module Opscode
       statement = query.is_a?(String) ? query : query.join("\n")
       cmd = shell_out("psql -q --tuples-only --no-align -d #{db_name} -f -",
                       user: 'postgres',
-                      input: statement
-                     )
+                      input: statement)
       # If psql fails, generally the postgresql service is down.
       # Instead of aborting chef with a fatal error, let's just
       # pass these non-zero exitstatus back as empty cmd.stdout.
