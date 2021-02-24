@@ -2,7 +2,7 @@
 # Cookbook:: apache2
 # Recipe:: default
 #
-# Copyright:: 2008-2013, Chef Software, Inc.
+# Copyright:: 2008-2017, Chef Software, Inc.
 # Copyright:: 2014-2015, Alexander van Zoest
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -84,7 +84,6 @@ unless platform_family?('debian')
 end
 
 if platform_family?('freebsd')
-
   directory "#{node['apache']['dir']}/Includes" do
     action :delete
     recursive true
@@ -97,7 +96,6 @@ if platform_family?('freebsd')
 end
 
 if platform_family?('suse')
-
   directory "#{node['apache']['dir']}/vhosts.d" do
     action :delete
     recursive true
@@ -133,7 +131,7 @@ directory node['apache']['lock_dir'] do
 end
 
 # Set the preferred execution binary - prefork or worker
-template "/etc/sysconfig/#{node['apache']['package']}" do
+template "/etc/sysconfig/#{node['apache']['service_name']}" do
   source 'etc-sysconfig-httpd.erb'
   owner 'root'
   group node['apache']['root_group']
@@ -210,8 +208,6 @@ service 'apache2' do
     end
   when 'debian'
     provider Chef::Provider::Service::Debian
-  when 'arch'
-    service_name apache_service_name
   end
   supports [:start, :restart, :reload, :status]
   action [:enable, :start]

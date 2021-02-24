@@ -2,6 +2,106 @@
 
 This file is used to list changes made in each version of the openssl cookbook.
 
+## 8.5.5 (2018-09-04)
+
+All resources in this cookbook are now built into Chef 14.4+. When Chef 15.4 is released (April 2019) the resources will be removed from this cookbook as all users should be running Chef 14.4 or later at that point.
+
+## 8.5.4 (2018-08-29)
+
+- Add missing email documentation for the request property
+- Fix x509_crl to work on non-Linux platforms
+- Attribute -> Property in the readme
+- revokation -> revocation in the readme
+- Update group/owner documentation
+- Avoid deprecation warnings on Chef 14.3+
+
+## 8.5.3 (2018-08-15)
+
+- Call ::OpenSSL not OpenSSL to be more defensive in the helpers
+
+## 8.5.2 (2018-08-14)
+
+- Back out mode change in ec_private_key
+
+## 8.5.1 (2018-08-14)
+
+- Add license headers to the resources
+- Remove default_action setup from the resources since this is done automatically in custom resources now
+- Make sure to use the path name_property when creating the ec public key file
+- Make sure we're using openssl and not Chef's Openssl class
+- Simplify how we handle user/group properties
+
+## 8.5.0 (2018-08-02)
+
+- Use the system provided owner/group defaults in resources
+- Added new openssl_x509_crl resource
+- Fix openssl_ec_public_key with documentation & tests
+- Few corrections in the documentation
+- Fix backward compatibility with chef client 12
+
+## 8.4.0 (2018-07-30)
+
+This release is brought to you by Institut National de l'Audiovisuel, which contributed the following changes:
+
+- openssl_x509 is renamed to openssl_x509_certificate with backwards compatibility for the old name
+- openssl_x509_certificate can now generate a signed certificate with a provided CA cert & key
+- openssl_x509_certificate now support x509 extensions
+- openssl_x509_certificate now support x509 csr
+- openssl_x509_certificate now generate a random serial for the certificate
+- openssl_x509_certificate expires has now a default value : 365
+- country field is now mandatory in x509_request
+- the private key file is not rewrited in x509_request if it already exist
+
+## 8.3.0 (2018-07-25)
+
+- Add resource x509_request
+
+## 8.2.0 (2018-07-23)
+
+- Add ec_private_key & ec_public_key resources
+
+## 8.1.2 (2018-02-09)
+
+- Fix typo in resources that caused failures on Windows.
+- Properly reference key_cipher in the readme
+
+## 8.1.1 (2018-01-05)
+
+- Add YARD comments to all the helpers
+- Move valid ciphers directly into the equal_to check
+- Remove the Chefspec matchers since modern ChefSpec does this automatically
+- Fix failures on Windows nodes
+
+## 8.1.0 (2017-12-28)
+
+- Adding x509 support for /ST and /L
+- Allow passing private key content to rsa_public_key resource via property
+- Fix openssl_rsa_public_key converging on every run
+- Fix undefied method "cipher" error in openssl_rsa_private_key resource
+
+## 8.0.0 (2017-12-11)
+
+- Added a new openssl_rsa_public_key resource which generates a public key from a private key
+- Rename openssl_rsa_key to openssl_rsa_private_key, while still allowing the old name to function. This resource actually generates private keys, but the previous name didn't make that clear
+- Added owner, group, and mode properties to all of the resources so you could control who owned the files you generated
+- Set the default modes of generated files to 640 instead of 644
+- Set the files to generate using node['root_group'] not 'root' for compatibility on other *nix systems such as FreeBSD and macOS
+- Added a new property to openssl_rsa_private_key for specifying the cipher to use
+- Converted integration tests to InSpec and moved all resources to a single Kitchen suite for quicker testing
+- Added a force property to allow overwriting any existing key that may exist
+- Fixed upgrade recipe failures on Debian 9
+- Added a new path property which allows you to set the path there instead of in the resource's name
+- Improved input validation in some of the helpers
+- Added a deprecation message in Opscode::OpenSSL::Password helper "secure_password" and removed readme documentation
+- Added a warning in the upgrade recipe if we're on an unsupported platform
+- Switched the upgrade recipe to a multipackage upgrade to speed up Chef runs
+
+## 7.1.0 (2017-05-30)
+
+- Add supported platforms to the metdata
+- Fix amazon support
+- Remove class_eval usage and require Chef 12.7+
+
 ## 7.0.1 (2017-03-21)
 
 - Fix compatibility with Chef 12.5.1

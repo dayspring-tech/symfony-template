@@ -1,6 +1,7 @@
 module MysqlCookbook
   class MysqlConfig < MysqlBase
     resource_name :mysql_config
+    provides :mysql_config
 
     property :config_name, String, name_property: true, desired_state: false
     property :cookbook, String, desired_state: false
@@ -14,21 +15,19 @@ module MysqlCookbook
     require_relative 'helpers'
     include MysqlCookbook::HelpersBase
 
-    provides :mysql_config
-
     action :create do
       # hax because group property
       g = Chef::Resource::Group.new(new_resource.group, run_context)
-      g.system true if name == 'mysql'
+      g.system true if new_resource.name == 'mysql'
       resource_collection.insert g
 
-      user owner do
-        gid owner
-        system true if name == 'mysql'
+      user new_resource.owner do
+        gid new_resource.owner
+        system true if new_resource.name == 'mysql'
         action :create
       end
 
-      directory include_dir do
+      directory new_resource.include_dir do
         owner new_resource.owner
         group new_resource.group
         mode '0750'
@@ -36,7 +35,7 @@ module MysqlCookbook
         action :create
       end
 
-      template "#{include_dir}/#{config_name}.cnf" do
+      template "#{new_resource.include_dir}/#{new_resource.config_name}.cnf" do
         owner new_resource.owner
         group new_resource.group
         mode '0640'
@@ -48,7 +47,7 @@ module MysqlCookbook
     end
 
     action :delete do
-      file "#{include_dir}/#{config_name}.cnf" do
+      file "#{new_resource.include_dir}/#{new_resource.config_name}.cnf" do
         action :delete
       end
     end

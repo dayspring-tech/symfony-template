@@ -10,6 +10,8 @@
 directory "#{node[:apache][:dir]}/mods-available/"
 directory "#{node[:apache][:dir]}/mods-enabled/"
 
+node.default['apache']['default_modules'] << 'systemd'
+
 include_recipe "apache2::mod_php"
 
 

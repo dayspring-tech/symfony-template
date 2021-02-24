@@ -4,6 +4,44 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.5.3 (2017-10-13)
+
+This cookbook was transferred to Sous Chefs.
+
+### Fixed
+
+- Fixed bug where cookbook tries to set root password on every run instead of first install only ([#174](https://github.com/sinfomicien/mariadb/issues/174))
+
+## 1.5.2 (2017-10-05)
+
+### Fixed
+
+- Fixed CookStyle warnings ([#172](https://github.com/sinfomicien/mariadb/issues/172))
+- Fixed Chefspec/Fauxhai deprecation messages ([#171](https://github.com/sinfomicien/mariadb/issues/171))
+- Fixed missing privileges on sstuser ([#168](https://github.com/sinfomicien/mariadb/pull/168))
+- Ensure configuration reload and server start after config ([#166](https://github.com/sinfomicien/mariadb/pull/166))
+
+### Added
+
+- Added optimisations for client and server ChefSpec ([#165](https://github.com/sinfomicien/mariadb/issues/165))
+- Added support for Percona XtraBackup 2.4 package ([#170](https://github.com/sinfomicien/mariadb/issues/170))
+
+### Removed
+
+- Removed some OSes from Travis test suite; now only running tests on latest supported OS releases to get faster feedback
+
+## 1.5.1 (2017-05-02)
+
+### Fixed
+
+- Remove check for chef-client running in local mode in the `galera` recipe which skips search - this prevents being able to search when using TK ([#160](https://github.com/sinfomicien/mariadb/pull/160))
+
+## 1.5.0 (2017-04-25)
+
+### Added
+
+- Add the ability to set a custom wsrep_node_port, for when you want to specify a non default `wsrep_node_incoming_address` value ([#152](https://github.com/sinfomicien/mariadb/pull/152))
+
 ## 1.4.0 (2017-04-21)
 
 ### Fixed

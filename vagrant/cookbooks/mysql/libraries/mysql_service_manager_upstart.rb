@@ -1,6 +1,7 @@
 module MysqlCookbook
   class MysqlServiceManagerUpstart < MysqlServiceBase
     resource_name :mysql_service_manager_upstart
+    provides :mysql_service_manager_upstart
 
     provides :mysql_service_manager, platform_family: 'debian' do |_node|
       Chef::Platform::ServiceHelpers.service_resource_providers.include?(:upstart) &&
@@ -37,9 +38,9 @@ module MysqlCookbook
         variables(
           defaults_file: defaults_file,
           mysql_name: mysql_name,
-          run_group: run_group,
-          run_user: run_user,
-          socket_dir: socket_dir
+          run_group: new_resource.run_group,
+          run_user: new_resource.run_user,
+          socket_dir: new_resource.socket_dir
         )
         cookbook 'mysql'
         action :create
@@ -82,7 +83,7 @@ module MysqlCookbook
       end
     end
 
-    declare_action_class.class_eval do
+    action_class do
       def stop_system_service
         service system_service_name do
           provider Chef::Provider::Service::Upstart

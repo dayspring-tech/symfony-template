@@ -2,6 +2,20 @@
 
 This file is used to list changes made in each version of the mingw cookbook.
 
+## 2.1.0 (2018-07-24)
+
+- refactor msys2 package source and checksum to attributes
+
+## 2.0.2 (2018-02-15)
+
+- Remove kind_of usage in the custom resources (FC117)
+
+## 2.0.1 (2017-04-26)
+
+- Test with Local Delivery instead of Rake
+- Add chef_version to the metadata
+- Use standardize Apache 2 license string
+
 ## 2.0.0 (2017-02-27)
 
 - Require Chef 12.5 and remove compat_resource dependency

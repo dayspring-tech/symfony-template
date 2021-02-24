@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 # The PostgreSQL RPM Building Project built repository RPMs for easy
 # access to the PGDG yum repositories. Links to RPMs for installation
 # on the supported version/platform combinations are listed at
@@ -110,12 +109,6 @@ default['postgresql']['pgdg']['repo_rpm_url'] = {
           'package' => 'pgdg-fedora96-9.6-3.noarch.rpm',
         },
       },
-      '25' => {
-        'x86_64' => {
-          'url' => 'http://yum.postgresql.org/9.6/fedora/fedora-25-x86_64/',
-          'package' => 'pgdg-fedora96-9.6-3.noarch.rpm',
-        },
-      },
     },
   },
   '9.5' => {
@@ -222,12 +215,6 @@ default['postgresql']['pgdg']['repo_rpm_url'] = {
           'package' => 'pgdg-fedora95-9.5-4.noarch.rpm',
         },
       },
-      '25' => {
-        'x86_64' => {
-          'url' => 'http://yum.postgresql.org/9.5/fedora/fedora-25-x86_64/',
-          'package' => 'pgdg-fedora95-9.5-4.noarch.rpm',
-        },
-      },
     },
   },
   '9.4' => {
@@ -266,16 +253,6 @@ default['postgresql']['pgdg']['repo_rpm_url'] = {
           'package' => 'pgdg-centos94-9.4-2.noarch.rpm',
         },
       },
-      '5' => {
-        'i386' => {
-          'url' => 'http://yum.postgresql.org/9.4/redhat/rhel-5-i386/',
-          'package' => 'pgdg-centos94-9.4-3.noarch.rpm',
-        },
-        'x86_64' => {
-          'url' => 'http://yum.postgresql.org/9.4/redhat/rhel-5-x86_64/',
-          'package' => 'pgdg-centos94-9.4-3.noarch.rpm',
-        },
-      },
     },
     'fedora' => {
       '22' => {
@@ -293,12 +270,6 @@ default['postgresql']['pgdg']['repo_rpm_url'] = {
       '24' => {
         'x86_64' => {
           'url' => 'http://yum.postgresql.org/9.4/fedora/fedora-24-x86_64/',
-          'package' => 'pgdg-fedora94-9.4-5.noarch.rpm',
-        },
-      },
-      '25' => {
-        'x86_64' => {
-          'url' => 'http://yum.postgresql.org/9.4/fedora/fedora-25-x86_64/',
           'package' => 'pgdg-fedora94-9.4-5.noarch.rpm',
         },
       },

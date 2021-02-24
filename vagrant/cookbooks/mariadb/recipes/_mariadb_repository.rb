@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: mariadb
-# Recipe:: _redhat_repository
+# Recipe:: _mariadb_repository
 #
 # Copyright 2014, blablacar.com
 #

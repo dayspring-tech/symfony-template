@@ -3,9 +3,6 @@ module MysqlCookbook
     require_relative 'helpers'
 
     # All resources are composites
-    def whyrun_supported?
-      true
-    end
 
     ################
     # Type Constants
@@ -25,6 +22,6 @@ module MysqlCookbook
     property :include_dir, String, default: lazy { default_include_dir }, desired_state: false
     property :major_version, String, default: lazy { major_from_full(version) }, desired_state: false
 
-    declare_action_class
+    action_class
   end
 end
