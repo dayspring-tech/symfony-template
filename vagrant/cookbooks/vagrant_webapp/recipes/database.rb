@@ -15,7 +15,7 @@ end
 template "/etc/my.cnf" do
   source "my.cnf.erb"
   mode 0644
-  notifies :restart, 'service[mysqld]'
+  notifies :restart, 'service[mysqld]', :immediate
 end
 
 script "change mysql password" do
