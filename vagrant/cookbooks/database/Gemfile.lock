@@ -378,7 +378,7 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
-    rack (1.6.4)
+    rack (2.2.3)
     rainbow (1.99.2)
     rake (10.4.2)
     rb-fsevent (0.9.6)
