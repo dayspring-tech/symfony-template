@@ -2,6 +2,83 @@ apache2 Cookbook Changelog
 ==========================
 This file is used to list changes made in each version of the apache2 cookbook.
 
+v3.3.0 (2017-04-11)
+-------------------
+
+- [GH-478] Added support for the amazon platform_family, outside of rhel
+- [GH-474] Update Berksfile to allow fetching of newer
+- [GH-473] Update copyright header format
+- [GH-472] foodcritic: add sous-chefs rules
+- add CODE_OF_CONDUCT
+- [GH-471] FCGI paths should not be messed with on RHEL/CenOS 7. CentOS 7 (and recent Fedoras) have Apache 2.4, where FCGI socket path and shared memory path is managed adequately without further involvment neccessary (subdirectory is created under /var/run/httpd).
+- [GH-470] Remove support for EOL Fedora < 18 / FreeBSD 9
+- [GH-465] Testing updates
+- [GH-469] Use the default cookbook style rules
+- [GH-460] Serverspec to InSpec migration
+- [GH-461] Update comment header format & other cookstyle fixes
+- [GH-454] Test in Travis with Chef-DK and a Rakefile
+- [GH-455] openSUSE Leap has it's own platform name
+- [GH-279] leave stubs for rhel family `conf.d` files to avoid conflicts on package upgrade; no longer remove `conf.d`, just don't use it
+- [GH-427] Add option to configure custom log level
+- [GH-450] Ensure the lock_dir is owned by www-data for Apache 2.2 and 2.4 on Debian/Ubuntu
+- Remove mod_auth_openid tests, as it is not part of the ASF release and plan to drop support for it and right now it is failing our tests
+- [GH-440] Update default values in `apache.prefork` section of README
+- [GH-443] fixed typo in copyright year
+- Test on the latest chef with chef-zero
+- Update supported platforms to Ubuntu 16.04, Debian 8.4, Centos 7.2; deprecating Ubuntu 12.04
+- [GH-422] Fix uniq for nil:NilClass error introduced in 3.2.2
+- [GH-423] allow for apache 2.4 usage on rhel < 7.0
+- Cookbook is now part of the sous-chefs, but still maintained by the same folks
+- mod_perl: No longer install libapache2-mpm-prefork
+- mod_php: renamed mod_php5 to more generic mod_php; using php 7.0 where available
+
+v3.2.2 (2016-04-13)
+-------------------
+
+- [GH-420] Allow auto-conversion if either of `apache.listen_ports` or `apache.listen_addresses` are set rather than '&&'. This ensures conversion occurs if only one of the two is set.
+
+
+v3.2.1 (2016-04-11)
+-------------------
+
+- [GH-225] notify `restart` instead of `reload` service on `apache_conf`, `apache_config`
+- Update to foodcritic 6
+
+v3.2.0 (2016-03-26)
+-------------------
+
+- [GH-378] Deprecates `apache.listen_addresses` and `apache.listen_ports` infavor of [GH-409]
+- [GH-409] `apache.listen` now accepts an array of `addr:port` strings
+- [GH-358] FreeBSD: Update 10.1 support; Adds php 5.6 in collaboration with chef-cookbooks/php#119
+- [GH-394] Have `apache.prefork.serverlimit` set ServerLimit directive on 2.4
+- [GH-363] Escape '.' in regex for .htaccess/.htpasswd files
+- [GH-365] Force log directory creation to be recursive
+- [GH-368] Change the service creation to use the `apache.service_name` attribute throughout
+- [GH-374] Make metadata.rb compatible with chef versions < 12.
+- [GH-382] Fixed typo in node['platform_family'] for NameError in `mod_proxy_html`
+- [GH-369] README: Added on Ubuntu `mod_fastcgi` requires `multiverse` apt repository to enabled.
+- [GH-381] README: Add missing backtick
+- [GH-384] README: Fix names for a2enconf and a2disconf
+- [GH-393] README: mention availability of `mod_actions` support
+- [GH-383] Debian: Add possibility to use other releases via `apache.default_release`
+- [GH-377] Restart service when including `mod_headers` to allow healing of failed service because of missing directives.
+- [GH-416] Change the default of `apache.mod_fastcgi.install_method` to 'package' all platforms, as `source` is no longer available.
+- [GH-401] Move `mod_deflate` to `apache.default_modules` and no longer force installation on `debian` families.
+- [GH-386] Do not install an extra mod_ssl package on SUSE Linux Enterprise
+- [GH-335] Do not hardcoded reload/restart on more modern rhel platforms, allowing systemd on CentOS 7
+- [GH-375] Install package `mod_ldap` on CentOS 7 (triggered by `apache.version` == 2.4)
+- Update `apache.mod_ssl.cipher_suite` to latest from https://bettercrypto.org/
+- README: Re-organize README to make it easier to find usage and remove old references.
+- Added new standard and missing modules (Note: these may not be available natively on all operating systems)
+  * [mod_http2](http://httpd.apache.org/docs/2.4/mod/mod_http2.html) - Support for the HTTP/2 transport layer. (available since 2.4.17) 
+  * [mod_authnz_fcgi](http://httpd.apache.org/docs/2.4/mod/mod_authnz_fcgi.html) - Enable FastCGI authorizer applications to authenticate and/or authorize clients.  (available since 2.4.10) 
+  * [mod_cern_meta](http://httpd.apache.org/docs/2.4/mod/mod_cern_meta.html) - CERN httpd metafile semantics
+  * [mod_ident](http://httpd.apache.org/docs/2.4/mod/mod_ident.html) - RFC 1413 ident lookups
+  * [mod_privileges](http://httpd.apache.org/docs/2.4/mod/mod_privileges.html) - Support for Solaris privileges and for running virtual hosts under different user IDs.
+  * [mod_socache_dc](http://httpd.apache.org/docs/2.4/mod/mod_socache_dc.html) - Distcache based shared object cache provider.
+  * [mod_version](http://httpd.apache.org/docs/2.4/mod/mod_version.html) - Version dependent configuration
+  * [mod_watchdog](http://httpd.apache.org/docs/2.4/mod/mod_watchdog.html) - Provides infrastructure for other modules to periodically run tasks
+
 v3.1.0 (2015-05-25)
 -------------------
 

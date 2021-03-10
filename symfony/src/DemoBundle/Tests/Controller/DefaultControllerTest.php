@@ -10,6 +10,7 @@ namespace DemoBundle\Tests\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use function var_dump;
 
 class DefaultControllerTest extends WebTestCase
 {
@@ -19,7 +20,6 @@ class DefaultControllerTest extends WebTestCase
         $client = self::createClient();
 
         $crawler = $client->request("GET", "/_demo/");
-
         $this->assertGreaterThan(
             0,
             $crawler->filter('html:contains("Theme example")')->count()

@@ -93,9 +93,9 @@ AccessFileName <%= node['apache']['access_file_name'] %>
 #
 <% access_file_name_prefix = node['apache']['access_file_name'][0..2] if !node['apache']['access_file_name'].empty?
    if access_file_name_prefix != '.ht'
-    file_name_prefix = '(' + access_file_name_prefix + '|.ht)'
+    file_name_prefix = '(' + access_file_name_prefix + '|\.ht)'
    else
-    file_name_prefix = '.ht'
+    file_name_prefix = '\.ht'
    end
 %>
 <Files ~ "^<%= file_name_prefix %>">
@@ -147,7 +147,7 @@ ErrorLog <%= node['apache']['log_dir'] %>/<%= node['apache']['error_log'] %>
 # Possible values include: debug, info, notice, warn, error, crit,
 # alert, emerg.
 #
-LogLevel warn
+LogLevel <%= node['apache']['log_level'] %>
 
 # COOK-1021: Dummy LoadModule directive to aid module installations
 #LoadModule dummy_module modules/mod_dummy.so
