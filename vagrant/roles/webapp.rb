@@ -5,6 +5,7 @@ name "webapp"
 description "Configure vagrant webapp"
 
 run_list "recipe[vagrant_webapp]",
+    "recipe[vagrant_webapp::unzip_hack]",
     "recipe[php]",
     "recipe[composer]",
     "recipe[vagrant_webapp::php_ini]",
