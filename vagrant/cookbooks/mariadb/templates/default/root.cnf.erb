@@ -1,5 +1,0 @@
-<% node['mariadb']['sections'].each do |section| -%>
-[<%= section %>]
-user=root
-password=<%= node['mariadb']['server_root_password'] %>
-<% end -%>

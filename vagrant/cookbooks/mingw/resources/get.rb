@@ -2,7 +2,7 @@
 # Cookbook:: mingw
 # Resource:: get
 #
-# Copyright:: 2016, Chef Software, Inc.
+# Copyright:: 2016-2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,10 +20,8 @@
 # Installs the core msys utilities needed for mingw/git/any other posix
 # based toolchain at a desired location using mingw-get.exe.
 
-property :package, kind_of: String, name_property: true
-property :root, kind_of: String, required: true
-
-resource_name :mingw_get
+property :package, String, name_property: true
+property :root, String, required: true
 
 action_class do
   def mingw_do_action(action_cmd)

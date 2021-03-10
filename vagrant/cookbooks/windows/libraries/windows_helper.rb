@@ -1,9 +1,9 @@
 #
 # Author:: Seth Chisamore (<schisamo@chef.io>)
 # Cookbook:: windows
-# Library:: helper
+# Library:: windows_helper
 #
-# Copyright:: 2011-2017, Chef Software, Inc.
+# Copyright:: 2011-2018, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,8 @@
 require 'uri'
 require 'Win32API' if Chef::Platform.windows?
 require 'chef/exceptions'
+require 'openssl'
+require 'chef/mixin/powershell_out'
 
 module Windows
   module Helper
@@ -45,16 +47,6 @@ module Windows
       else
         cmd
       end
-    end
-
-    # Create a feature provider dependent value object.
-    # mainly created becasue Windows Feature names are
-    # different based on whether dism.exe or servicemanagercmd.exe
-    # is used for installation
-    def value_for_feature_provider(provider_hash)
-      p = Chef::Platform.find_provider_for_node(node, :windows_feature)
-      key = p.to_s.downcase.split('::').last
-      provider_hash[key] || provider_hash[key.to_sym]
     end
 
     # singleton instance of the Windows Version checker
@@ -103,7 +95,7 @@ module Windows
       buf.strip
     end
 
-    def is_package_installed?(package_name) # rubocop:disable Style/PredicateName
+    def is_package_installed?(package_name) # rubocop:disable Naming/PredicateName
       installed_packages.include?(package_name)
     end
 

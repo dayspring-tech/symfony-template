@@ -2,7 +2,7 @@
 # Cookbook:: apache2
 # Recipe:: mod_ldap
 #
-# Copyright:: 2008-2013, Chef Software, Inc.
+# Copyright:: 2008-2017, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-if platform_family?('rhel', 'amazon') && node['apache']['version'] == '2.4'
+if platform_family?('rhel', 'fedora', 'amazon') && node['apache']['version'] == '2.4'
   package 'mod_ldap'
 end
 

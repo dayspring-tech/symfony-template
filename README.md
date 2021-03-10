@@ -1,21 +1,20 @@
 # Symfony Template
 
-This repo serves as a template for creating a "Dayspring Standard" Symfony 2.8 project.
-Fork this repo to start a new project.
+This repo serves as a template for creating a "Dayspring Standard" Symfony 3.4 project.
+Download this code to start a new project.
 
 ### Included libraries/packages
-- Symfony 2.8.x
+- Symfony 3.4.x
 - Bootstrap 3 (sass)
 - Propel/PropelBundle
-- Angular 2.x
-- Webpack 2.x
+- Angular 6.x
 - BraincraftedBootstrapBundle (for Symfony form styling)
 - Flysystem/FlysystemBundle
 - JWT (lcobucci/jwt)
 - Dayspring Login Bundle
 
 #### Other Tools
-- Vagrant box: dayspring-tech/dayspring-centos6-lamp-js (PHP 5.6, Node 4.2, MySQL 5.6)
+- Vagrant box: bento/amazonlinux-2 (PHP 7.4, Node 10.x, MySQL 5.7)
 
 ### Instructions
 1. Edit the `Vagrantfile` to customize the `application_name`, `document_root`, and

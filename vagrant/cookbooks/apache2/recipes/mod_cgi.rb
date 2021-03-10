@@ -2,7 +2,7 @@
 # Cookbook:: apache2
 # Recipe:: mod_cgi
 #
-# Copyright:: 2008-2013, Chef Software, Inc.
+# Copyright:: 2008-2017, Chef Software, Inc.
 # Copyright:: 2014, Viverae, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,5 +22,6 @@ if node['apache']['mpm'] == 'prefork'
   apache_module 'cgi'
 else
   Chef::Log.warn "apache::mod_cgi. Your MPM #{node['apache']['mpm']} seems to be threaded. Selecting cgid instead of cgi."
-  apache_module 'cgid'
+
+  include_recipe 'apache2::mod_cgid'
 end
